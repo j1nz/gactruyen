@@ -1,0 +1,179 @@
+#exportable
+/*	Func xoá d?u cho van b?n by dola - Gaki
+	Vui lòng không xoá b?n quy?n
+*/
+
+function khongdau $text=;
+assign $out=call str_replace $subject=$text;$search=d;$replace=d;
+assign $out=call str_replace $subject=$out;$search=Ð;$replace=d;
+assign $out=call str_replace $subject=$out;$search=à;$replace=a;
+assign $out=call str_replace $subject=$out;$search=á;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=ã;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+
+assign $out=call str_replace $subject=$out;$search=á;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=a;$replace=a;
+
+assign $out=call str_replace $subject=$out;$search=â;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=â;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+
+assign $out=call str_replace $subject=$out;$search=e;$replace=e;
+assign $out=call str_replace $subject=$out;$search=è;$replace=e;
+assign $out=call str_replace $subject=$out;$search=é;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+
+assign $out=call str_replace $subject=$out;$search=ê;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+
+assign $out=call str_replace $subject=$out;$search=o;$replace=o;
+assign $out=call str_replace $subject=$out;$search=ò;$replace=o;
+assign $out=call str_replace $subject=$out;$search=ó;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=õ;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+
+assign $out=call str_replace $subject=$out;$search=ô;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+
+assign $out=call str_replace $subject=$out;$search=o;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+
+assign $out=call str_replace $subject=$out;$search=u;$replace=u;
+assign $out=call str_replace $subject=$out;$search=ù;$replace=u;
+assign $out=call str_replace $subject=$out;$search=ú;$replace=u;
+assign $out=call str_replace $subject=$out;$search=?;$replace=u;
+assign $out=call str_replace $subject=$out;$search=u;$replace=u;
+assign $out=call str_replace $subject=$out;$search=?;$replace=u;
+
+assign $out=call str_replace $subject=$out;$search=u;$replace=u;
+assign $out=call str_replace $subject=$out;$search=?;$replace=u;
+assign $out=call str_replace $subject=$out;$search=?;$replace=u;
+assign $out=call str_replace $subject=$out;$search=?;$replace=u;
+assign $out=call str_replace $subject=$out;$search=?;$replace=u;
+assign $out=call str_replace $subject=$out;$search=?;$replace=u;
+
+assign $out=call str_replace $subject=$out;$search=i;$replace=i;
+assign $out=call str_replace $subject=$out;$search=ì;$replace=i;
+assign $out=call str_replace $subject=$out;$search=í;$replace=i;
+assign $out=call str_replace $subject=$out;$search=?;$replace=i;
+assign $out=call str_replace $subject=$out;$search=i;$replace=i;
+assign $out=call str_replace $subject=$out;$search=?;$replace=i;
+
+assign $out=call str_replace $subject=$out;$search=y;$replace=y;
+assign $out=call str_replace $subject=$out;$search=?;$replace=y;
+assign $out=call str_replace $subject=$out;$search=ý;$replace=y;
+assign $out=call str_replace $subject=$out;$search=?;$replace=y;
+assign $out=call str_replace $subject=$out;$search=?;$replace=y;
+assign $out=call str_replace $subject=$out;$search=?;$replace=y;
+
+assign $out=call str_replace $subject=$out;$search=À;$replace=a;
+assign $out=call str_replace $subject=$out;$search=Á;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=Ã;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+
+assign $out=call str_replace $subject=$out;$search=A;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+
+assign $out=call str_replace $subject=$out;$search=Â;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+assign $out=call str_replace $subject=$out;$search=Â;$replace=a;
+assign $out=call str_replace $subject=$out;$search=?;$replace=a;
+
+assign $out=call str_replace $subject=$out;$search=E;$replace=e;
+assign $out=call str_replace $subject=$out;$search=È;$replace=e;
+assign $out=call str_replace $subject=$out;$search=É;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+
+assign $out=call str_replace $subject=$out;$search=Ê;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+assign $out=call str_replace $subject=$out;$search=?;$replace=e;
+
+assign $out=call str_replace $subject=$out;$search=O;$replace=o;
+assign $out=call str_replace $subject=$out;$search=Ò;$replace=o;
+assign $out=call str_replace $subject=$out;$search=Ó;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=Õ;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+
+assign $out=call str_replace $subject=$out;$search=Ô;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+
+assign $out=call str_replace $subject=$out;$search=O;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+assign $out=call str_replace $subject=$out;$search=?;$replace=o;
+
+assign $out=call str_replace $subject=$out;$search=U;$replace=u;
+assign $out=call str_replace $subject=$out;$search=Ù;$replace=u;
+assign $out=call str_replace $subject=$out;$search=Ú;$replace=u;
+assign $out=call str_replace $subject=$out;$search=?;$replace=u;
+assign $out=call str_replace $subject=$out;$search=U;$replace=u;
+assign $out=call str_replace $subject=$out;$search=?;$replace=u;
+
+assign $out=call str_replace $subject=$out;$search=U;$replace=u;
+assign $out=call str_replace $subject=$out;$search=?;$replace=u;
+assign $out=call str_replace $subject=$out;$search=?;$replace=u;
+assign $out=call str_replace $subject=$out;$search=?;$replace=u;
+assign $out=call str_replace $subject=$out;$search=?;$replace=u;
+assign $out=call str_replace $subject=$out;$search=?;$replace=u;
+
+assign $out=call str_replace $subject=$out;$search=I;$replace=i;
+assign $out=call str_replace $subject=$out;$search=Ì;$replace=i;
+assign $out=call str_replace $subject=$out;$search=Í;$replace=i;
+assign $out=call str_replace $subject=$out;$search=?;$replace=i;
+assign $out=call str_replace $subject=$out;$search=I;$replace=i;
+assign $out=call str_replace $subject=$out;$search=?;$replace=i;
+
+assign $out=call str_replace $subject=$out;$search=Y;$replace=y;
+assign $out=call str_replace $subject=$out;$search=?;$replace=y;
+assign $out=call str_replace $subject=$out;$search=Ý;$replace=y;
+assign $out=call str_replace $subject=$out;$search=?;$replace=y;
+assign $out=call str_replace $subject=$out;$search=?;$replace=y;
+assign $out=call str_replace $subject=$out;$search=?;$replace=y;
+var $haivan0147 = call strtolower $val=$out
+return $haivan0147
+endfunction

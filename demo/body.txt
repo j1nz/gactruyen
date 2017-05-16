@@ -1,0 +1,66 @@
+<!--parser:xtscript-->
+var $xtc_key =107895
+var $xtc_user = Gakiwap
+include /xts/function.xt
+var $id=$file
+var $tep=<xt:filecount folder="/files/$id"/>
+var $sotep =T?p tin \(<font color="red">$tep</font>\)
+if $tep >= 2
+  var $sotep =T?p tin \(<font color="red">($tep-1)</font>\)
+      var $files = {{<div class="file-attach"><div class="attach"><b>? T?p tin ch? d? ?</b></div><div class="file"><div style="padding: 2px 0;"><xt:filelist sort_type="name" sort_dir="esc" per_page="10" folder="/files/$id" template="» &lt;a rel=&quot;nofollow&quot; href=&quot;.file_url.&quot;&gt;.file_name.&lt;/a&gt; &#40;.file_size.&#41;&lt;br/&gt;" filter="-index" /></div></div></div>}}
+endif
+
+Print {{<div class="phdr"><div itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/" itemprop="url"><span itemprop="title">Trang ch?</span></a> » <span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/$dir" itemprop="url"><span itemprop="title">$tencmm</span></a></span> » <span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/$dir?id=$idcm" itemprop="url"><span itemprop="title">$tencm</span></a></span></div></div>
+<div class="mainstory"><div class="news"><a href="/tags?q=$tenbv" rel="dofollow">Tìm ki?m</a> » $sotep</div></div>}}
+
+Print {{<div class="mainstory">
+		<div class="postinfo">
+		<a href="#down" id="up"><img src="http://gactruyen.mobie.in/images/icon/down.png"  width="20px" height="12px" alt="??"/></a> <h1>$tenbv</h1><br/>
+          <span class="postby">Ðang <font color="red">Admin</font></span>
+           <span style="display: none" itemprop="review" itemscope="" itemtype="http://data-vocabulary.org/Review-aggregate">
+            <span itemprop="rating">4.5</span> sao trên <span itemprop="count">1024</span>ngu?i dùng
+		</span>
+		<span class="view"><xt id="counter" type="4"/></span><br/>
+		Chia s?: <a href="smsto:01222558948?body=Hay doc bai viet nay $url"><img src="http://gactruyen.mobie.in/images/icon/sms.png" alt="SMS" /></a> <a title="Ðang lên Google" target="_blank" href="https://www.google.com.vn/bookmarks/mark?op=add&amp;bkmk=$url&amp;title=$name_bv&amp;annotation="> <img src="http://gactruyen.mobie.in/images/icon/gg.png" alt="Google" /></a> <a target="_blank"href="http://link.apps.zing.vn/pro/view/conn/share?u=$url"><img src="http://gactruyen.mobie.in/images/icon/zm.png" alt="Zing" /></a> <a href="http://facebook.com/sharer/sharer.php?u=$url"target="_blank"><img src="http://gactruyen.mobie.in/images/icon/fb.png" alt="Facebook" /></a> <a href="http://twitter.com/share?url=$url"target="_blank"><img src="http://gactruyen.mobie.in/images/icon/tt.png" alt="Twitter" /></a>
+		</div>
+		<div class="noidung">
+		<div align="right"><div class="fb-like" data-href="$url" data-layout="button_count" data-action="like" data-show-faces="true" data-share="false"></div>
+          <div class="g-plusone" data-annotation="bubble" data-size="small" data-href="$url"></div></div>}}
+          var $info=call source $file=/../../$dir/dataf0lder/$id;$nl2br=1
+		var $info = call @bbcode $text=$info;
+		call @page $noidung=$info
+          Print $files
+		Print </div></div>
+<!--/parser:xtscript-->
+
+<div class="phdr">Bi`nh luâ?n ba`i viê´t</div>
+<div class="list1"><xt:widget id="activity-feed" include_common_js="true" language="vi_VN" domain="xtgem.com" width="160" height="320" border_color="#880000" header="false" color_scheme="dark" link_target="gactruyen.mobie.in" font="arial" recommendations="false" />
+</div>
+
+<div class="phdr"><a href="#up" id="down"><img src="http://gactruyen.mobie.in/images/icon/up.png"  width="20px" height="12px" alt="??"/></a> 
+Cùng Chuyên M?c</div>
+<!--parser:xtscript-->
+call @filelist $fi=*$idcm*;$dir=$dir;$per_page=5;
+<!--/parser:xtscript-->
+
+<div class="news">Tags: 
+<script type="text/javascript">
+var th=document.title;
+var url = location.href;
+tags=th.split(" ");
+for (var i=0;i<tags.length;i++)
+{
+tags[i] = tags[i].replace(/,/ig,"").replace(/-/ig,"").replace(/»/ig,"").replace(/|/ig,"");
+document.write('<span class="tags"><a href="'+url+'" rel="dofollow">'+tags[i]+'</a></span> ');
+}
+tag=th.split("»");
+for (var i=0;i<tags.length;i++)
+{
+tag[i] = tag[i].replace(/»/ig,"");
+document.write('<span class="tags"><a href="/tags?q='+tag[i]+'" rel="dofollow"><h2>'+tag[i]+'</h2></a></span> ');
+}      
+      </script></div>
+
+<div class="phdr">Game online Hay</div>
+<div class="list1"><xt:include file="/auto/game-online/*" /></div>
+
