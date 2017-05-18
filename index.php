@@ -1,10 +1,18 @@
+<?php 
+	define('PATH_PUBLIC', 'public');
+
+	$css_mystyle = PATH_PUBLIC.'/css/mystyle.css';
+	$css_style = PATH_PUBLIC.'/css/style.css';
+	$js_jquery = PATH_PUBLIC.'/js/jquery-2.2.2.js';
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<link rel="stylesheet" href="css/mystyle.css">
-		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="<?php echo $css_style; ?>">
+		<link rel="stylesheet" href="<?php echo $css_mystyle; ?>">
       	<title>GacTruyen.Mobie.In</title>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -223,7 +231,7 @@
             </div>
          </div>
 
-         <script src="js/jquery-2.2.2.js"></script>
+         <script src="<?php echo $js_jquery; ?>"></script>
 
          <script type="text/javascript">
 			var link = window.location.href;
@@ -235,8 +243,9 @@
 			function currentTime(){
 				took = took + 0.01;	
 				tookParseFloat = parseFloat(took);
-
-				$('#took').text("Took: " + Math.round(tookParseFloat * 1000) / 1000 + " s");
+				
+				document.getElementById('took').innerHTML = "Took: " + Math.round(tookParseFloat * 1000) / 1000 + " s";
+				//$('#took').text("");
 			}
 
 			var loopTime = setInterval("currentTime()", 10);
