@@ -1,12 +1,7 @@
 <?php 
-	define('ABSPATH', dirname(__FILE__).'/');
-    define('TEMPPATH', '');
-
-	$css_mystyle = TEMPPATH.'include/css/mystyle.css';
-	$css_style = TEMPPATH.'include/css/style.css';
-	$js_jquery = TEMPPATH.'include/js/jquery-2.2.2.js';
+    if ( ! defined('ABSPATH')) die ('Bad requested!');
+    
 ?>
-
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <link rel="stylesheet" href="<?php echo $css_style; ?>">

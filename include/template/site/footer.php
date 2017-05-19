@@ -1,3 +1,38 @@
+    <div class="widget">
+        <div class="title">
+          <span>Chia sẻ</span>
+        </div>
+        <div class="news">
+          <div class="share">
+                    <a href="smsto:01222558948?body=Hay doc bai viet nay <xt:url>">
+                        <img src="http://gactruyen.mobie.in/images/icon/sms.png" alt="SMS" />
+                    </a>
+                      <a title="Đăng lên Google" target="_blank" href="https://www.google.com.vn/bookmarks/mark?op=add&amp;bkmk=<xt:url>&amp;title=$name_bv&amp;annotation=">
+                        <img src="http://gactruyen.mobie.in/images/icon/gg.png" alt="Google" />
+                    </a>
+                      <a target="_blank" href="http://link.apps.zing.vn/pro/view/conn/share?u=<xt:url>">
+                        <img src="http://gactruyen.mobie.in/images/icon/zm.png" alt="Zing" />
+                    </a>
+                      <a href="http://facebook.com/sharer/sharer.php?u=<xt:url>" target="_blank">
+                        <img src="http://gactruyen.mobie.in/images/icon/fb.png" alt="Facebook" />
+                    </a>
+                    <a href="http://twitter.com/share?url=<xt:url>" target="_blank">
+                        <img src="http://gactruyen.mobie.in/images/icon/tt.png" alt="Twitter" />
+                    </a>
+                </div>
+          <div class="bbcode">
+            <span>URL</span>
+            <textarea id="url" cols="20" rows="1"></textarea>
+            <span>BBCode</span>
+            <textarea id="bbcode" cols="20" rows="2"></textarea>
+          </div>
+          
+                
+        </div>
+        
+      </div>
+
+
     <footer>
          <div class="container">
             
