@@ -160,6 +160,13 @@ a:hover {
     border-bottom: none;
     background: #fff;
 }
+
+.widget .list_item {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-top: none;
+    background: #fff;
+}
 /* end widget */
 
 /* class news */

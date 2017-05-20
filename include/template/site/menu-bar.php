@@ -7,13 +7,13 @@
 <div class="container">
 	<a href="/">
         <div class="header" align="center">
-           <img src="http://gactruyen.mobie.in/images/gactruyen.mobie.in.png" alt="Wap đọc truyện, sách hay miễn phí cập nhập mỗi ngày"/>
+           <img src="/upload/images/logo/gactruyen.mobie.in.png" alt="Wap đọc truyện, sách hay miễn phí cập nhập mỗi ngày"/>
         </div>
     </a>
     <div class="navbar">
     	<a title="Thế giới giải trí, đọc truyện hay miễn phí, sách hay cho bạn" href="/">
             <span class="item selected">
-            <b><img src="http://gactruyen.mobie.in/images/icon/home.png" alt="HOME"/>HOME</b>
+            <b><img src="/upload/images/icon/home.png" alt="HOME"/>HOME</b>
             </span>
         </a>
         <a title="Blog Radio cập nhật" href="/blog">
@@ -21,12 +21,12 @@
             <b>BLOG</b>
             </span>
         </a>
-        <a title="Truyện hay" href="/truyen">
+        <a title="Truyện hay" href="/story">
             <span class="item">
             <b>TRUYỆN</b>
             </span>
         </a>
-        <a title="Game Hay" href="http://gactruyen.mobie.in/game">
+        <a title="Game Hay" href="#">
             <span class="item">
             <b>GAME</b>
             </span>

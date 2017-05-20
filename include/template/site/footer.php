@@ -5,19 +5,19 @@
         <div class="news">
           <div class="share">
                     <a href="smsto:01222558948?body=Hay doc bai viet nay <xt:url>">
-                        <img src="http://gactruyen.mobie.in/images/icon/sms.png" alt="SMS" />
+                        <img src="/upload/images/icon/sms.png" alt="SMS" />
                     </a>
-                      <a title="Đăng lên Google" target="_blank" href="https://www.google.com.vn/bookmarks/mark?op=add&amp;bkmk=<xt:url>&amp;title=$name_bv&amp;annotation=">
-                        <img src="http://gactruyen.mobie.in/images/icon/gg.png" alt="Google" />
+                      <a title="Đăng lên Google" target="_blank" href="#">
+                        <img src="/upload/images/icon/gg.png" alt="Google" />
                     </a>
-                      <a target="_blank" href="http://link.apps.zing.vn/pro/view/conn/share?u=<xt:url>">
-                        <img src="http://gactruyen.mobie.in/images/icon/zm.png" alt="Zing" />
+                      <a target="_blank" href="#">
+                        <img src="/upload/images/icon/zm.png" alt="Zing" />
                     </a>
-                      <a href="http://facebook.com/sharer/sharer.php?u=<xt:url>" target="_blank">
-                        <img src="http://gactruyen.mobie.in/images/icon/fb.png" alt="Facebook" />
+                      <a href="#" target="_blank">
+                        <img src="/upload/images/icon/fb.png" alt="Facebook" />
                     </a>
-                    <a href="http://twitter.com/share?url=<xt:url>" target="_blank">
-                        <img src="http://gactruyen.mobie.in/images/icon/tt.png" alt="Twitter" />
+                    <a href="#" target="_blank">
+                        <img src="/upload/images/icon/tt.png" alt="Twitter" />
                     </a>
                 </div>
           <div class="bbcode">
@@ -57,7 +57,7 @@
                 <div class="footer_copyright">
                 	<span>Copyright ©2014 by </span>
 
-               		<a rel="author" href="https://www.google.com/">
+               		<a rel="author" href="/">
                			<span>Gác Truyện™</span>
                		</a>
 
@@ -71,7 +71,7 @@
          <div class="container">
             <div class="new" style color="red" atl="lien ket">
                <b>Liên kết wap:
-               </b> <a href="http://www.zumbo.mobie.in" atl="wap tai game">Wap game</a>
+               </b> <a href="#" atl="wap tai game">Wap game</a>
             </div>
          </div>
 
@@ -82,16 +82,16 @@
 
          <!--back to top-->
          <div id="go_to_top">
-            <img src="http://gactruyen.mobie.in/images/icon/back-to-top.png" alt="Lên đầu trang" /><br/>
+            <img src="/upload/images/icon/back-to-top.png" alt="Lên đầu trang" /><br/>
             <div align="center">
                <a href="javascript:history.go(-1)">
-               <img src="http://gactruyen.mobie.in/images/icon/previous.png"/>
+               <img src="/upload/images/icon/previous.png"/>
                </a>
-               <a href="/"><img src="http://gactruyen.mobie.in/images/icon/icon_home.png"/></a>
+               <a href="/gactruyen/"><img src="/upload/images/icon/icon_home.png"/></a>
             </div>
          </div>
 
-         <script src="<?php echo $js_jquery; ?>"></script>
+         <script src="/include/js/jquery-2.2.2.js"></script>
 
          <script type="text/javascript">
 			var link = window.location.href;
@@ -104,8 +104,8 @@
 				took = took + 0.01;	
 				tookParseFloat = parseFloat(took);
 				
-				document.getElementById('took').innerHTML = "Took: " + Math.round(tookParseFloat * 1000) / 1000 + " s";
-				//$('#took').text("");
+				//document.getElementById('took').innerHTML = "Took: " + Math.round(tookParseFloat * 1000) / 1000 + " s";
+				$('#took').text("Took: " + Math.round(tookParseFloat * 1000) / 1000 + " s");
 			}
 
 			var loopTime = setInterval("currentTime()", 10);
