@@ -22,7 +22,9 @@
         // Hàm k?t n?i
         public function db_connect(){
             if (!$connection){
-                $connection = mysqli_connect('localhost', 'root', '', 'gactruyen') 
+                require_once(ABSPATH, '/load.php')
+                
+                $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) 
                         or die ('Không th? k?t n?i CSDL');
                 mysqli_set_charset($connection, 'UTF-8');
             }

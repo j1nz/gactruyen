@@ -21,7 +21,7 @@
             <b>BLOG</b>
             </span>
         </a>
-        <a title="Truyện hay" href="/truyen">
+        <a title="Truyện hay" href="/gactruyen/truyen">
             <span class="item">
             <b>TRUYỆN</b>
             </span>

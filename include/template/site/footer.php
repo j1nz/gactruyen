@@ -87,11 +87,11 @@
                <a href="javascript:history.go(-1)">
                <img src="http://gactruyen.mobie.in/images/icon/previous.png"/>
                </a>
-               <a href="/"><img src="http://gactruyen.mobie.in/images/icon/icon_home.png"/></a>
+               <a href="/gactruyen/"><img src="http://gactruyen.mobie.in/images/icon/icon_home.png"/></a>
             </div>
          </div>
 
-         <script src="<?php echo $js_jquery; ?>"></script>
+         <script src="/gactruyen/include/js/jquery-2.2.2.js"></script>
 
          <script type="text/javascript">
 			var link = window.location.href;

@@ -9,11 +9,8 @@
 	}
 
 	if ( file_exists( ABSPATH . '/config.php' ) ) {
-
 		/** The config file resides in ABSPATH */
 		require_once( ABSPATH . '/config.php' );
-
-
 	} 
 
 	define('PATH_SITE', ABSPATH .'/site');
