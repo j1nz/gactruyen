@@ -1,0 +1,33 @@
+<!--parser:xtscript-->
+var $path = <xt:url type="path"/>
+assign $sd = call strrpos $haystack=$path;$needle=/;$offset=0
+assign $dir = call substr $val=$path;$start=1;$length=($sd-10)
+var $file = call substr $val=$path;$start=($sd+1)
+var $file = call str_replace $subject=$file;$search=.html;$replace=;
+assign $idcm = call substr $val=$file;$start=0;$length=2
+var $tenbv = call source $file=/../../$dir/name/$file;
+var $tencmm = call source $file=/../../$dir/name.txt;
+var $tencm = call source $file=/../../$dir/muc/$idcm;
+var $des = call source $file=/../../$dir/muc/$idcm.des;
+var $key = call source $file=/../../$dir/muc/$idcm.key;
+var $spc = call chr $val=32
+var $tag = call str_replace $subject=$tenbv;$search=$spc;$replace=,$spc;
+Print <meta name="keywords" content="$tenbv, $key" /><meta name="description" content="$tenbv, $key"/><title>$tenbv</title>
+<!--/parser:xtscript-->
+<meta http-equiv="content-language" content="vi" />
+<meta name="Language" content="vietnamese" />
+<meta name="robots" content="noodp,index,follow" />
+<meta name="revisit-after" content="1 days" />
+<meta name="Googlebot" content="follow" >
+<link rel="author" href="https://plus.google.com/u/0/107012086250607128099" />
+<link rel="alternate" media="handheld" href="http://gactruyen.mobie.in" />
+<link rel="apple-touch-icon" href="http://gactruyen.mobie.in/images/game.png" />
+<link rel="canonical" href="<xt:url>" />
+
+<meta property="og:locale" content="vi_VN" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="<!--parser:xtscript-->print $tenbv<!--/parser:xtscript-->" />
+<meta property="og:description" content="<!--parser:xtscript-->print $tenbv, $des<!--/parser:xtscript-->" />
+<meta property="og:url" content="<xt:url>" />
+<meta property="og:site_name" content="<!--parser:xtscript-->print $tenbv<!--/parser:xtscript-->" />
+<meta property="article:tag" content="<!--parser:xtscript-->print $tag<!--/parser:xtscript-->" />
