@@ -21,7 +21,11 @@
             <b>BLOG</b>
             </span>
         </a>
+<<<<<<< HEAD
         <a title="Truyện hay" href="/story">
+=======
+        <a title="Truyện hay" href="/gactruyen/truyen">
+>>>>>>> 83bdfa3deb5bce3b86670b52ecd60bef7ab86c9d
             <span class="item">
             <b>TRUYỆN</b>
             </span>

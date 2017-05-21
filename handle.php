@@ -11,6 +11,7 @@
     
     $permalinks = explode('/',$_SERVER['REQUEST_URI']);
 
+<<<<<<< HEAD
     if (isset( $permalinks ) ) { 
         
         if (isset($permalinks[1] ) ) {
@@ -25,6 +26,14 @@
             $base->load_404();
         }
         
+=======
+    if (isset( $permalinks ) )
+	{  
+        require_once(ABSPATH .'/include/function/class-function-controller.php');
+        
+		$func = new FunctionController();
+        $func->redirect($permalinks);
+>>>>>>> 83bdfa3deb5bce3b86670b52ecd60bef7ab86c9d
     }
           
 ?>

@@ -3,10 +3,15 @@
 	# IndexIgnore *
 
     RewriteEngine On
+<<<<<<< HEAD
+=======
+	# RewriteEngine on
+>>>>>>> 83bdfa3deb5bce3b86670b52ecd60bef7ab86c9d
 	# RewriteRule ^index.html$ index.php
 	# ForceType application/x-httpd-php
     # AddType text/css .css
     
+<<<<<<< HEAD
     RewriteBase /gactruyen.com/
     
     RewriteRule ^truyen$ story/index.php
@@ -15,6 +20,9 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ /handle.php?path=$1 [NC,L,QSA]
     
+=======
+    # RewriteBase /
+>>>>>>> 83bdfa3deb5bce3b86670b52ecd60bef7ab86c9d
 	# RewriteRule ^index\.php$ – [L]
 	# RewriteCond %{REQUEST_FILENAME} !-f
     # RewriteCond %{REQUEST_FILENAME} !-d
@@ -31,4 +39,12 @@
     # RewriteRule .* - [L,R=404]
     
     
+<<<<<<< HEAD
     
+=======
+    RewriteRule ^truyen$ story/index.php
+    
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /gactruyen/handle.php?path=$1 [NC,L,QSA]
+>>>>>>> 83bdfa3deb5bce3b86670b52ecd60bef7ab86c9d
