@@ -5,6 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<link rel="stylesheet" href="css/mystyle.css">
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/font-awesome.css">
       	<title>GacTruyen.Mobie.In</title>
 		
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -211,19 +212,32 @@
 			<div class="title"><span>//////title quote fixed/////</span></div>
 			<div class="content"><span>//////simple is best/////</span></div>
 		</div>
+		
+
+		<div id="button_setting">
+			<i class="fa fa-cogs fa-3x" aria-hidden="true"></i>
+		</div>
 
          <!--back to top-->
          <div id="go_to_top">
-            <img src="http://gactruyen.mobie.in/images/icon/back-to-top.png" alt="Lên đầu trang" /><br/>
-            <div align="center">
+            <!-- <img src="http://gactruyen.mobie.in/images/icon/back-to-top.png" alt="Lên đầu trang" /><br/> -->
+            <i class="fa fa-chevron-circle-up fa-3x" aria-hidden="true"></i>
+            <!-- <div align="center">
                <a href="javascript:history.go(-1)">
                <img src="http://gactruyen.mobie.in/images/icon/previous.png"/>
                </a>
                <a href="/"><img src="http://gactruyen.mobie.in/images/icon/icon_home.png"/></a>
-            </div>
+            </div> -->
          </div>
 
+		<div class="setting-modal">
+			sssssssssss
+
+			<span id="close-modal">close</span>
+		</div>
+
          <script src="js/jquery-2.2.2.js"></script>
+         <script src="js/jquery.mousewheel.js"></script>
 
          <script type="text/javascript">
 			var link = window.location.href;
@@ -239,32 +253,81 @@
 				$('#took').text("Took: " + Math.round(tookParseFloat * 1000) / 1000 + " s");
 			}
 
-			var loopTime = setInterval("currentTime()", 10);
+			function hide_setting() {
+				$('#button_setting').fadeOut("slow");
+			}
+
+
+			var loopTime = setInterval('currentTime()', 10);
 
 			$(window).bind("load", function() { 
 				clearInterval(loopTime);
 			});
 
+			
+
             $(function() {
+            	
+            	/*$(document).mousewheel( function(e, delta){
+					if (delta == 0) {
+						time_show = setTimeout('hide_setting()', 2000);
+					}
+
+					if (delta == 1) {
+
+						time_show = setTimeout('show_setting()', 1000);
+					}
+				});*/
             	
             	$('#widget_quote_fixed').hide();
 
+            	$('.setting-modal').hide();
+
               	$('#url').text(link);
               	$('#bbcode').text("[" +link + "] [" +title+ "]");
-
 				
-				
+				var timeStamp = new Date().getTime();
 	            $(window).scroll(function () {
+					var timeNow = new Date().getTime();
+
+					//chặn scroll liên tục
+				    if (timeNow - timeStamp < 500) {
+				    	timeStamp = timeNow;
+				    	return;
+				    } else {
+				    	timeStamp = timeNow;
+					}
 
 	                if ($(this).scrollTop() > 50) {
+	                	$('#button_setting').fadeIn();
 	                	$('#go_to_top').fadeIn();
 	                	$('#widget_quote_fixed').fadeIn();
+
+	                	setTimeout('hide_setting()', 1500);
+	                	
 	                }
 	                  
 	                else {
 	                	$('#widget_quote_fixed').fadeOut();
 	                  	$('#go_to_top').fadeOut();
+	                  	hide_setting();
+	                 
 	                }
+	            });
+
+				$('#button_setting').click(function () {
+	            	console.log('open setting read mode');
+	            	$('.setting-modal').show();
+	            	
+	            	
+	            });
+	            
+
+	            $('#close-modal').click(function () {
+	            	console.log('close setting read mode');
+	            	$('.setting-modal').hide();
+	            	
+	            	
 	            });
 
 	            $('#go_to_top').click(function () {
