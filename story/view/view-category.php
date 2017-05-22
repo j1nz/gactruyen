@@ -12,7 +12,6 @@
     <div class="container">
         <div class="widget">
            	<div class="title">
-<<<<<<< HEAD
                 <a href="<?php echo '/' ?>" >
                     <span>Trang chủ</span>
                 </a> » 
@@ -22,17 +21,7 @@
                 </a> » 
                 
                 <span><?php echo $this->category_name;?></span>
-=======
-                <a href="<?php echo '/' .$host?>" >
-                    <span>Trang chủ</span>
-                </a> » 
-                
-                <a href="<?php echo ('/' .$host .'/' .$action);?>">
-                    <span><?php echo ucfirst(strtolower($action));?></span>
-                </a> » 
-                
-                <span><?php echo $category;?></span>
->>>>>>> 83bdfa3deb5bce3b86670b52ecd60bef7ab86c9d
+
             </div>
             
             <div class="content">

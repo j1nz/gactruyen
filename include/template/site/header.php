@@ -12,18 +12,10 @@
         
         <title>GacTruyen.Mobie.In</title>
         
-<<<<<<< HEAD
         <link rel="author" href="#" />
         <link rel="alternate" media="handheld" href="#" />
         <link rel="canonical" href="#" />
         <link rel="shortcut icon" href="/upload/images/icon/bieu-tuong-wap.ico" type="image/x-icon" />
         <link rel="stylesheet" href="/include/css/style.css" />
         <link rel="stylesheet" href="/include/css/mystyle.css" />
-=======
-        <link rel="author" href="https://plus.google.com/u/0/107012086250607128099" />
-        <link rel="alternate" media="handheld" href="http://gactruyen.mobie.in" />
-        <link rel="canonical" href="http://gactruyen.mobie.in" />
-        <link rel="shortcut icon" href="http://www.zumbo.mobie.in/images/icon/bieu-tuong-wap.ico" type="image/x-icon" />
-        <link rel="stylesheet" href="/gactruyen/include/css/style.css" />
-        <link rel="stylesheet" href="/gactruyen/include/css/mystyle.css" />
->>>>>>> 83bdfa3deb5bce3b86670b52ecd60bef7ab86c9d
+

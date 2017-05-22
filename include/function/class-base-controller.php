@@ -9,11 +9,9 @@
         public function load_404() {
             ob_end_clean();
             header('HTTP/1.0 404 Not Found');
-<<<<<<< HEAD
+
             header('Location: ' .'/404.php');
-=======
-            header('Location: ' .'/gactruyen/404.php');
->>>>>>> 83bdfa3deb5bce3b86670b52ecd60bef7ab86c9d
+
             exit;
         }
         

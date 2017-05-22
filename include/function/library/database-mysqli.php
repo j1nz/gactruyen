@@ -21,7 +21,6 @@
 
         // Hàm k?t n?i
         public function db_connect(){
-<<<<<<< HEAD:include/function/library/database-mysqli.php
             if (!$this->connection){
                 
                 
@@ -29,12 +28,7 @@
                 
                 mysqli_set_charset($this->connection, 'utf-8');
                 $this->connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) 
-=======
-            if (!$connection){
-                require_once(ABSPATH, '/load.php')
-                
-                $connection = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME) 
->>>>>>> 83bdfa3deb5bce3b86670b52ecd60bef7ab86c9d:include/function/library/database.php
+
                         or die ('Không th? k?t n?i CSDL');
                 //$this->connection->set_charset('UTF-8');
                 
