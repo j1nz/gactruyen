@@ -1,4 +1,4 @@
-
+/* 
 
 
 
@@ -531,7 +531,7 @@ input[type="submit"], input[type="button"], input[type="reset"], .button {
 input[type="submit"]:hover, .button a:hover {
     background: #808F33;
 }
-select {
+/* select {
     background: #FDFDFD;
     color: #555;
     border: 1px solid #d1d1d1;
@@ -540,7 +540,7 @@ select {
     box-shadow: inset 1px 1px 3px #eee;
     border-radius: 4px;
     cursor: url("http://gactruyen.mobie.in/css/img/bt.png"),auto;
-}
+} */
 .tags {
     padding: 1px;
 }
@@ -561,4 +561,4 @@ select {
     border: 1px solid #C4DAE9;
     text-decoration: none;
     border-radius: 3px;
-}
+} */
