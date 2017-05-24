@@ -503,16 +503,16 @@ border-radius: 5px;
     border-radius: 3px;
 }
 /*----------Input--------*/
-
+/* 
 input, textarea {
     background: #FDFDFD;
     color: #555;
     border: 1px solid #ddd;
     padding: 3px;
     margin: 1px;
-	border-radius: 3px;
-}
-input[type="checkbox"] {
+    border-radius: 3px;
+} */
+/* input[type="checkbox"] {
     vertical-align: middle;
 }
 input[type="submit"], input[type="button"], input[type="reset"], .button {
@@ -526,11 +526,11 @@ input[type="submit"], input[type="button"], input[type="reset"], .button {
     border-radius: 3px;
 }
 .button a {
-	color: #fff;
+    color: #fff;
 }
 input[type="submit"]:hover, .button a:hover {
     background: #808F33;
-}
+} */
 /* select {
     background: #FDFDFD;
     color: #555;
