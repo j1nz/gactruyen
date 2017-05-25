@@ -36,7 +36,6 @@
                 self::index();
                 
             } else {
-                
                 // Lấy danh sách link của category
                 $list_category_slug = $this->loader->load_category_slug();
                 
@@ -48,15 +47,13 @@
                     if ($this->category == $item['slug']) {
                         
                         // Nếu có category người dùng yêu cầu, thì sẽ gọi hàm load category và exit chương trình
-                        self::load_category($item['category_id']);
+                        self::load_category($item['category_id'], $permalinks);
                         exit;
-                        
                     }
                 }
                 
                 //Nếu không có thì sẽ gọi hàm lỗi 404
                 parent::load_404();
-                
             }
                
         }
@@ -75,12 +72,32 @@
 
         }
         
-        public function load_category($category_id) {
-            require_once(ABSPATH .'/story/controller/class-category-controller.php');
+        public function load_category($category_id, $permalinks) {
+            $size = count($permalinks);
             
-            $obj_category = new CategoryController($this->host, $this->function, $category_id);
+            if ($size > 3) {
+                
+                if ($permalinks[3] != null || $permalinks[3] != '') {
+                    echo '<script>alert(' .'"load manga"'. ')</script>';
+                    require_once(ABSPATH .'/story/controller/class-manga-controller.php');
+                    
+                    $obj_manga = new MangaController();
+                    
+                    $obj_manga->redirect($permalinks);
+                } else {
+                    require_once(ABSPATH .'/story/controller/class-category-controller.php');
             
-            $obj_category->view_category();
+                    $obj_category = new CategoryController($this->host, $this->function, $category_id);
+                    
+                    $obj_category->view_category();
+                }
+            } else {
+                require_once(ABSPATH .'/story/controller/class-category-controller.php');
+            
+                $obj_category = new CategoryController($this->host, $this->function, $category_id);
+                
+                $obj_category->view_category();
+            }
 
         }
     }

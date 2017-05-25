@@ -5,8 +5,9 @@
             protected $function;
             protected $category_name;
             protected $category_id;
+            private $permalinks;
             protected $loader;
-       
+
             public function __construct($host, $function, $category_id) {
 	       
                   $this->host = $host;
@@ -17,7 +18,10 @@
                   
                   $this->loader = LoadCategory::getInstance();
             }
-
+            
+            public function setPermalinks($permalinks) {
+                $this->permalinks = $permalinks;
+            }
        
             public function view_category() {
                   //ob_end_clean();
