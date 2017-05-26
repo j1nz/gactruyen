@@ -14,19 +14,26 @@
            	<div class="title">
                 <a href="<?php echo '/' ?>" >
                     <span>Trang chủ</span>
-                </a> » 
-                
+                </a>
+                <span> » </span>
                 <a href="<?php echo ('/' .$this->function .'/' );?>">
                     <span><?php echo ucfirst(strtolower($this->function));?></span>
-                </a> » 
-                
-                <span><?php echo $this->category_name;?></span>
+                </a>
+                <span> » </span>
+                <span><?php echo $obj_category->getCategory_name();?></span>
 
             </div>
             
-            <div class="content">
-                <span>Dang update thong tin</span>
-            </div>
+            <?php 
+                foreach($list_manga as $row) {
+                    echo '<div class="list_item">';
+                    echo '<img src="http://gactruyen.mobie.in/images/icon/item.png" alt="»">';
+                    echo '<a rel="dofollow" href="/'.$this->function .'/' .$obj_category->getSlug() .'/' .$row['slug'] .'" title="'.$row['story_name'] .'">';
+                    echo $row['story_name'];
+                    echo '</a>';
+                    echo '</div>';
+                }
+            ?>
         </div>
     </div>    
 

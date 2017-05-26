@@ -22,24 +22,34 @@
                 $this->_pdo = new PDO('mysql:host=' .DB_HOST .';dbname=' .DB_NAME, DB_USER, DB_PASSWORD);
             
                 $this->_pdo->exec('set names utf8');
-    
-            
             } catch (PDOException $e) {
                 die('Could not connect to the database '.DB_NAME .' :' . $e->getMessage());
             }
     
         }
         
-        function query_pdo_parameter($sql, $parameter_array) {
+        function q_all_with_param($sql, $parameter_array) {
             
             $stmt = $this->_pdo->prepare($sql);
             //$this->_pdo->bindParam(':id', $category_id);
             $stmt->execute($parameter_array);
+            
             $result = $stmt->fetchAll();
             return $result;
         }
         
-        function query_pdo($sql) {
+        function q_item_with_param($sql, $parameter_array) {
+            
+            $stmt = $this->_pdo->prepare($sql);
+            //$this->_pdo->bindParam(':id', $category_id);
+            $stmt->execute($parameter_array);
+            
+            $result = $stmt->fetch();
+            
+            return $result;
+        }
+        
+        function q_get_all($sql) {
             
             $result = $this->_pdo->query($sql);
             $result->setFetchMode(PDO::FETCH_ASSOC);

@@ -1,53 +1,110 @@
 <?php
+    require_once(ABSPATH .'/include/function/loader/class-load-category.php');
+    require_once(ABSPATH .'/include/function/library/database-pdo.php');
+	/**
+	 * LoadManga
+	 * 
+	 * @package   
+	 * @author 
+	 * @copyright GacTruyen
+	 * @version 2017
+	 * @access public
+	 */
 	class LoadManga {
         private static $_instance;
         private $connect;
         
+        /**
+         * LoadManga::__construct()
+         * 
+         * @return
+         */
         public function __construct() {
-            require_once(ABSPATH .'/include/function/library/database-pdo.php');
+            
         }
         
+        /**
+         * LoadManga::getInstance()
+         * 
+         * @return
+         */
         public static function getInstance() {
             if (!(self::$_instance instanceof self)) {
                 self::$_instance = new self();
             }
             return self::$_instance;
         }
-
-        function load_manga_name_by_id($manga_id) {
+        
+        
+        function check_story_by_slug($permalinks) {
+            $load_category = LoadCategory::getInstance();
+            
+            // lay id cua category thong qua duong link
+            $__result_category_id = $load_category->get_categoryId_by_slug($permalinks[2]);
+            
+            // Lay slug link story
+            $__slug_link = $permalinks[3];
+            
             $db_pdo = PdoConnection::getInstance();
             $db_pdo->get_conect_pdo();
             
-            $sql = 'SELECT story_name FROM story WHERE story_id = :id';
-            $paremeter = array(
-                'id' => $manga_id
+            $__sql = 'SELECT story_id FROM story WHERE slug = :link AND category_id = :category';
+            $__paremeter = array(
+                'link' => $__slug_link,
+                'category' => $__result_category_id['category_id']
             );
             
-            $__result = $db_pdo->query_pdo_parameter($sql, $paremeter);
+            $__result = $db_pdo->q_item_with_param($__sql, $__paremeter);
             
-            foreach( $__result as $i ) {
-                $story_name = $i['story_name'];
+            if ($__result == true) {
+                return true;
             }
             
-            return $story_name;
+            return false;
         }
-    
-        function load_manga_all() {
+
+        /**
+         * LoadManga::get_story_by_slug()
+         * 
+         * @since 2017/05/24
+         * @param mixed $permalinks
+         * @return list story from database
+         */
+        function get_story_by_slug($permalinks) {
+            $load_category = LoadCategory::getInstance();
+            
+            // lay id cua category thong qua duong link
+            $__category_id = $load_category->get_categoryId_by_slug($permalinks[2]);
+            
+            // Lay slug link story
+            $__slug_link = $permalinks[3];
             
             $db_pdo = PdoConnection::getInstance();
             $db_pdo->get_conect_pdo();
-            $list_manga = $db_pdo->query_pdo('SELECT * FROM story');
             
-            return $list_manga;
+            $__sql = 'SELECT story_id, story_name, slug FROM story WHERE slug = :link AND category_id = :category';
+            $__paremeter = array(
+                'link' => $__slug_link,
+                'category' => $__category_id
+            );
+            
+            $__list_manga_slug = $db_pdo->q_item_with_param($__sql, $__paremeter);
+            
+            return $__list_manga_slug;
         }
         
-        function load_story_slug() {
+        function get_story_of_category_id($category_id) {
             $db_pdo = PdoConnection::getInstance();
             $db_pdo->get_conect_pdo();
             
-            $list_manga_slug = $db_pdo->query_pdo('SELECT story_id, slug FROM story');
+            $__sql = 'SELECT story_id, story_name, slug FROM story WHERE category_id = :id';
+            $__paremeter = array(
+                'id' => $category_id
+            );
             
-            return $list_manga_slug;
+            $__result = $db_pdo->q_all_with_param($__sql, $__paremeter);
+            
+            return $__result;
         }
 	}
 ?>

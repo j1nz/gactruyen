@@ -1,6 +1,5 @@
 <?php
 	class BaseController {
-        protected $host;
        
         public function __construct() {
             

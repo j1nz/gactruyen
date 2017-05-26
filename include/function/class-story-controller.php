@@ -1,5 +1,6 @@
 <?php
     require_once('class-base-controller.php');
+    require_once(ABSPATH .'/story/model/class-category.php');
     
     class StoryController extends BaseController {
         protected $function;
@@ -36,20 +37,19 @@
                 self::index();
                 
             } else {
-                // Lấy danh sách link của category
-                $list_category_slug = $this->loader->load_category_slug();
-                
+                // Kiem tra duong link co hop le hay khong
+                $flag_slug = $this->loader->check_slug_by_slug($this->category);
+
                 /**
                  * Kiểm tra url của người dùng có tồn tại thể loại đó không
                  * 
                  */
-                while ($item = $list_category_slug->fetch() ) {
-                    if ($this->category == $item['slug']) {
-                        
-                        // Nếu có category người dùng yêu cầu, thì sẽ gọi hàm load category và exit chương trình
-                        self::load_category($item['category_id'], $permalinks);
-                        exit;
-                    }
+                if ($flag_slug == true) {
+                    $item_category = $this->loader->get_categoryId_by_slug($this->category);
+                    
+                    // Nếu có category người dùng yêu cầu, thì sẽ gọi hàm load category và exit chương trình
+                    self::load_category($item_category['category_id'], $permalinks);
+                    exit;
                 }
                 
                 //Nếu không có thì sẽ gọi hàm lỗi 404
@@ -58,15 +58,11 @@
                
         }
         
-        public function get_uri($permalinks) {
-            
-        }
-        
         public function index() {
             //ob_end_clean();
             header('HTTP/1.0 200 OK');
             
-            $list_category = $this->loader->load_category_all();
+            $list_category = $this->loader->get_category_all();
             
             include_once(ABSPATH .'/story/story.php');
 
@@ -76,29 +72,29 @@
             $size = count($permalinks);
             
             if ($size > 3) {
-                
+                // url nguoi dung yeu cau den story
                 if ($permalinks[3] != null || $permalinks[3] != '') {
-                    echo '<script>alert(' .'"load manga"'. ')</script>';
+                    
                     require_once(ABSPATH .'/story/controller/class-manga-controller.php');
                     
                     $obj_manga = new MangaController();
                     
                     $obj_manga->redirect($permalinks);
                 } else {
-                    require_once(ABSPATH .'/story/controller/class-category-controller.php');
-            
-                    $obj_category = new CategoryController($this->host, $this->function, $category_id);
-                    
-                    $obj_category->view_category();
+                    self::get_view_category($category_id);
                 }
             } else {
-                require_once(ABSPATH .'/story/controller/class-category-controller.php');
-            
-                $obj_category = new CategoryController($this->host, $this->function, $category_id);
-                
-                $obj_category->view_category();
+                self::get_view_category($category_id);
             }
 
+        }
+        
+        private function get_view_category($category_id) {
+            require_once(ABSPATH .'/story/controller/class-category-controller.php');
+            
+            $obj_category = new CategoryController($this->host, $this->function, $category_id);
+            
+            $obj_category->view_category();
         }
     }
 ?>
