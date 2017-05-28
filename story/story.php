@@ -22,7 +22,8 @@
             </div>
             
             <?php 
-                while($row = $list_category->fetch()) {
+                
+                foreach($list_category as $row) {
                     echo '<div class="list_item">';
                     echo '<img src="http://gactruyen.mobie.in/images/icon/item.png" alt="»">';
                     echo '<a rel="dofollow" href="/'.$this->function .'/' .$row['slug'] .'" title="'.$row['category_name'] .'">';

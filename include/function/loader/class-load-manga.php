@@ -36,14 +36,14 @@
         }
         
         
-        function check_story_by_slug($permalinks) {
+        function check_story_by_slug($manga, $category) {
             $load_category = LoadCategory::getInstance();
             
             // lay id cua category thong qua duong link
-            $__result_category_id = $load_category->get_categoryId_by_slug($permalinks[2]);
+            $__result_category_id = $load_category->get_categoryId_by_slug($category);
             
             // Lay slug link story
-            $__slug_link = $permalinks[3];
+            $__slug_link = $manga;
             
             $db_pdo = PdoConnection::getInstance();
             $db_pdo->get_conect_pdo();
@@ -91,6 +91,38 @@
             $__list_manga_slug = $db_pdo->q_item_with_param($__sql, $__paremeter);
             
             return $__list_manga_slug;
+        }
+        
+        public function get_total_records_table() {
+            $db_pdo = PdoConnection::getInstance();
+            $db_pdo->get_conect_pdo();
+            
+            $__sql = 'SELECT count(story_id) as total FROM story';
+
+            $__result = $db_pdo->q_get_all($__sql);
+            
+            foreach ($__result as $row) {
+                return $row['total'];
+            }
+            
+            return 0;
+        }
+        
+        public function get_story_by_paging_a_slug($start, $limit, $category_id) {
+            $db_pdo = PdoConnection::getInstance();
+            $db_pdo->get_conect_pdo();
+            
+            $__sql = 'SELECT story_id, story_name, slug FROM story ';
+            $__sql .= 'WHERE category_id = :category LIMIT '.$start .', ' .$limit .';';
+            $__paremeter = array(
+                'category' => $category_id
+                
+            );
+            
+            $__result = $db_pdo->q_all_with_param($__sql, $__paremeter);
+            
+            
+            return $__result;
         }
         
         function get_story_of_category_id($category_id) {

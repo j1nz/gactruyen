@@ -5,9 +5,9 @@
 	 * MangaController
 	 * 
 	 * @package gactruyen
-	 * @author lehongphuc
+	 * @author
 	 * @copyright 2017
-	 * @version $Id$
+	 * @version 1.1
 	 * @access public
 	 */
 	class MangaController extends BaseController {
@@ -26,6 +26,8 @@
            $this->loader = LoadManga::getInstance();
 	   }
        
+       
+       
        public function redirect($permalinks) {
             //un-comment when use at localhost, if up to host don't need nesesary'
             //cut the first index of array 
@@ -42,28 +44,31 @@
             
             $size = count($permalinks);
             
+            $this->manga = parent::get_param_url($permalinks[3]);
+            
+            
             if ($size > 4) {
                 if ($permalinks[4] != null || $permalinks[4] != '') {
                     
                     $chapter = $permalinks[4];
                     if ($chapter == 'index' || $chapter == 'index.html' || $chapter == 'index.php') {
-                        self::check_link_manga($permalinks);
+                        self::check_link_manga($this->manga, $this->category);
                     } else {
                         echo '<script>alert(' .'"load chapter of manga"'. ')</script>';
                     }
                 } else {
-                    self::check_link_manga($permalinks);
+                    self::check_link_manga($this->manga, $this->category);
                 }
             } else {
-                self::check_link_manga($permalinks);
+                self::check_link_manga($this->manga, $this->category);
             }
             
        }
        
-       public function check_link_manga($permalinks) {
+       public function check_link_manga($manga, $category) {
             
             // Lấy danh sách link của table story
-            $flag_manga = $this->loader->check_story_by_slug($permalinks);
+            $flag_manga = $this->loader->check_story_by_slug($manga, $category);
             
             if ($flag_manga == true) {
                 //require_once (ABSPATH .'/story/model/class-story.php');

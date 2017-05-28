@@ -7,6 +7,16 @@
             
         }
         
+        public function get_param_url($short_url) {
+            
+            $param_url = explode('?', $short_url);
+            
+            
+            $page_request = $param_url[0];
+            
+            return $page_request;
+        }
+        
         public function redirect($permalinks) {
 
             //cut the first index of array 
@@ -25,6 +35,8 @@
                 parent::load_index($this->host);
 
             } else {
+                $this->function = self::get_param_url($this->function);
+                
                 switch($this->function) {
                     case 'story' :
                         //include_once(ABSPATH .'/story/index.php');
@@ -49,8 +61,5 @@
             }
         }
         
-        
-        
-
     }
 ?>

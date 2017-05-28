@@ -100,6 +100,7 @@
             
             $db_pdo = PdoConnection::getInstance();
             $db_pdo->get_conect_pdo();
+            
             $list_category = $db_pdo->q_get_all('SELECT * FROM category');
             
             return $list_category;

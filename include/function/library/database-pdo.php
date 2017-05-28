@@ -51,8 +51,11 @@
         
         function q_get_all($sql) {
             
-            $result = $this->_pdo->query($sql);
-            $result->setFetchMode(PDO::FETCH_ASSOC);
+            $stmt = $this->_pdo->prepare($sql);
+            //$this->_pdo->bindParam(':id', $category_id);
+            $stmt->execute();
+            
+            $result = $stmt;
         
             return $result;
         }
