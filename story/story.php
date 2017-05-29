@@ -22,13 +22,18 @@
             </div>
             
             <?php 
-                
-                foreach($list_category as $row) {
-                    echo '<div class="list_item">';
-                    echo '<img src="http://gactruyen.mobie.in/images/icon/item.png" alt="»">';
-                    echo '<a rel="dofollow" href="/'.$this->function .'/' .$row['slug'] .'" title="'.$row['category_name'] .'">';
-                    echo $row['category_name'];
-                    echo '</a>';
+                if ($list_category != null) {
+                    foreach($list_category as $row) {
+                        echo '<div class="list_item">';
+                        echo '<img src="http://gactruyen.mobie.in/images/icon/item.png" alt="»">';
+                        echo '<a rel="dofollow" href="/'.$this->function .'/' .$row['slug'] .'" title="'.$row['category_name'] .'">';
+                        echo $row['category_name'];
+                        echo '</a>';
+                        echo '</div>';
+                    }
+                } else {
+                    echo '<div class="content">';
+                    echo 'Chua co category';
                     echo '</div>';
                 }
             ?>

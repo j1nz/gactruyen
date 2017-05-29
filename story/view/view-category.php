@@ -24,15 +24,22 @@
 
             </div>
             
-            <?php 
-                foreach($list_manga as $row) {
-                    echo '<div class="list_item">';
-                    echo '<img src="http://gactruyen.mobie.in/images/icon/item.png" alt="»">';
-                    echo '<a rel="dofollow" href="/'.$this->function .'/' .$obj_category->getSlug() .'/' .$row['slug'] .'" title="'.$row['story_name'] .'">';
-                    echo $row['story_name'];
-                    echo '</a>';
+            <?php
+                if ($list_manga != null) {
+                   foreach($list_manga as $row) {
+                        echo '<div class="list_item">';
+                        echo '<img src="http://gactruyen.mobie.in/images/icon/item.png" alt="»">';
+                        echo '<a rel="dofollow" href="/'.$this->function .'/' .$obj_category->getSlug() .'/' .$row['slug'] .'" title="'.$row['story_name'] .'">';
+                        echo $row['story_name'];
+                        echo '</a>';
+                        echo '</div>';
+                    } 
+                } else {
+                    echo '<div class="content">';
+                    echo 'Chua co noi dung';
                     echo '</div>';
                 }
+                
             ?>
         </div>
     </div>    
