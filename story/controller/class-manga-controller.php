@@ -81,8 +81,14 @@
             
             if ($flag_manga == true) {
                 require_once (ABSPATH .'/story/model/class-story.php');
+                require_once (ABSPATH .'/include/function/loader/class-load-chapter.php');
+                require_once(ABSPATH .'/story/model/class-category.php');
                 
-                /**
+                $obj_load_chapter = LoadChapter::getInstance();
+                $obj_load_category = LoadCategory::getInstance();
+                $obj_story = new Story();
+                $obj_category = new Category();
+               /**
                  * @todo check story have chapter
                  * 
                  * @todo 
@@ -98,17 +104,24 @@
                  * 
                  * @todo pagnition content, with each page have 20,000 word
                  * 
-                 * @since
+                 * @since 2017-05-30
                  * @version 1.0
                  */
-                echo '<script>alert(' .'"load manga"'. ')</script>';
-//                $obj_story = new Story();
-//                $obj_story->setStory_id($result_slug_link['story_id']);
-//                $obj_story->setStory_name($result_slug_link['story_name']);
-//                $obj_story->setSlug($result_slug_link['slug']);
-//                
-//                var_dump($obj_story);
                 
+                $result_story = $this->loader->get_story_by_story_slug($this->manga);
+                $obj_story->setStory_id($result_story['story_id']);
+                $obj_story->setStory_name($result_story['story_name']);
+                $obj_story->setSlug($result_story['slug']);
+                
+                $result_category = $obj_load_category->get_category_by_slug($this->category);
+                $obj_category->setCategory_id($result_category['category_id']);
+                $obj_category->setCategory_name($result_category['category_name']);
+                $obj_category->setSlug($result_category['slug']);
+
+                $total_chapter = $obj_load_chapter->get_total_chapter_of_story($obj_story->getStory_id());
+
+                include (ABSPATH .'/story/view/view-manga.php');
+                exit;
             } else {
                 parent::load_404();
             }

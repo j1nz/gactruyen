@@ -1,0 +1,84 @@
+/*----- Class setting modal ------ */
+#button_setting {
+    bottom: 20px;
+    /*cursor: pointer;*/
+    color: #165bde;
+    display: none;
+    height: 35px;
+    position: fixed;
+    left: 10px;
+    width: 44px;
+    z-index: 999;
+}
+
+.setting-modal {
+    table-layout: fixed;
+    width: 100%;
+    height: 190px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 999;
+    color: #333;
+    background: rgba(148, 144, 144, 0.9);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    border: 1px solid #dcdcdc;
+    box-sizing: border-box;
+}
+
+.setting-modal #close-modal {
+    float: right;
+    padding-top: 2px;
+    padding-right: 2px;
+}
+
+#close-modal span{
+    border: 1px solid #ea0630;
+}
+
+.setting-modal .setting-read {
+    display: grid;
+}
+
+.setting-read span{
+    width: 41%;
+    margin-top: 10px;
+}
+
+.setting-read select{
+    width: 47%;
+    height: 22px;
+    margin-top: 10px;
+}
+
+.setting-read input{
+    width: 45%;
+    height: 15px;
+    margin-top: 10px;
+}
+
+.setting-read p{
+    margin-left: 5px;
+}   
+
+.setting-read .changeFontSize {
+    display: inline-flex;
+}
+
+.setting-read .changeBackground {
+    display: inline-flex;
+}
+
+.setting-read .changeForeground {
+    display: inline-flex;
+}
+
+.setting-read .changeFontFamily {
+    display: inline-flex;
+}
+
+#test-change-size {
+    
+}
+

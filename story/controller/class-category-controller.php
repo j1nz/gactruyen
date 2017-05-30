@@ -64,16 +64,16 @@
              * @version 1.1
              * @since 2017-05-27
              */
-            $total_records = $obj_load_manga->get_total_records_table();
+            $total_records = $obj_load_manga->get_total_records_table($this->category_id);
             
             if (isset($_GET['lm'])) {
                 $value_lm = $_GET['lm'];
             } else {
-                $value_lm = 10;
+                $value_lm = 20;
             }
             
             if ($value_lm > $total_records) {
-                $record_per_page = 10;
+                $record_per_page = 20;
             } else {
                 $record_per_page = $value_lm;
             }
@@ -83,7 +83,8 @@
             if (isset($_GET['pn'])) {
                 
                 // 2017-05-29 bug if not add = into $_GET['pn'] >= $total_page
-                if ($_GET['pn'] >= $total_page) {
+                // 2017-05-30 it not bug
+                if ($_GET['pn'] > $total_page) {
                     $page = 1;
                 } else {
                     $page = $_GET['pn'];

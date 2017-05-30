@@ -33,6 +33,8 @@ a:hover {
     z-index: 999;
 }
 
+
+
 /*---------Class header----------*/
 .header {
     padding: 5px 0 6px 6px;
@@ -122,52 +124,7 @@ a:hover {
 }
 
 
-/* widget display information at index */
-.widget_quote {
-    display: inline-flex;
-}
 
-.widget_quote .title{
-    font-weight: bold;
-    color: red;
-}
-
-.widget_quote .content{
-    color: #222;
-    
-}
-
-.widget .title {
-    box-shadow: -1px 1px 10px #AAA;
-    font-weight: bold;  
-    background: #444 url('http://gactruyen.mobie.in/css/img/tcat.png');
-    font-family: Arial;
-    font-size: 14px;
-    margin-top: 1px;
-    padding: 6px;
-    color: #eee;
-    border-left: 4px solid #3598DC;
-}
-
-.content span {
-    display: table;
-}
-
-.widget .content {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-top:none;
-    border-bottom: none;
-    background: #fff;
-}
-
-.widget .list_item {
-    padding: 8px;
-    border: 1px solid #ddd;
-    border-top: none;
-    background: #fff;
-}
-/* end widget */
 
 /* class news */
 .news {
@@ -204,4 +161,49 @@ a:hover {
 
 .bbcode textarea {
     width: 100%
+}/* widget display information at index */
+.widget_quote {
+    display: inline-flex;
 }
+
+.widget_quote .title{
+    font-weight: bold;
+    color: red;
+}
+
+.widget_quote .content{
+    color: #222;
+    
+}
+
+.widget .title {
+    box-shadow: -1px 1px 10px #AAA;
+    font-weight: bold;  
+    background: #444 url('/upload/images/icon/tcat.png');
+    font-family: Arial;
+    font-size: 14px;
+    margin-top: 1px;
+    padding: 6px;
+    color: #eee;
+    border-left: 4px solid #3598DC;
+}
+
+.content span {
+    display: table;
+}
+
+.widget .content {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-top:none;
+    border-bottom: none;
+    background: #fff;
+}
+
+.widget .list_item {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-top: none;
+    background: #fff;
+}
+/* end widget */

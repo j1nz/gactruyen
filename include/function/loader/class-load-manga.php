@@ -93,13 +93,37 @@
             return $__list_manga_slug;
         }
         
-        public function get_total_records_table() {
+        /**
+         * 
+         * @since 2017-05-30
+         * @version 1.0
+         */
+        public function get_story_by_story_slug($slug) {
             $db_pdo = PdoConnection::getInstance();
             $db_pdo->get_conect_pdo();
             
-            $__sql = 'SELECT count(story_id) as total FROM story';
-
-            $__result = $db_pdo->q_get_all($__sql);
+            $__sql = 'SELECT story_id, story_name, slug FROM story WHERE slug = :link';
+            $__paremeter = array(
+                'link' => $slug
+            );
+            
+            $__manga_slug = $db_pdo->q_item_with_param($__sql, $__paremeter);
+            
+            return $__manga_slug;
+        }
+        
+        public function get_total_records_table($category_id) {
+            $db_pdo = PdoConnection::getInstance();
+            $db_pdo->get_conect_pdo();
+            
+            $__sql = 'SELECT count(story_id) as total FROM story WHERE category_id = :categoryId';
+            
+            $__paremeter = array(
+                'categoryId' => $category_id
+                
+            );
+            
+            $__result = $db_pdo->q_all_with_param($__sql, $__paremeter);
             
             foreach ($__result as $row) {
                 return $row['total'];

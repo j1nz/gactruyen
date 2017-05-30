@@ -183,7 +183,9 @@ if $p < $nump
 endif
 
 if $lnd > $show
-var $pagego = </div></div><div class="mainstory"><div class="page">$prev$dau$prevvp$prevp<span>$p</span>$nextp$nexttp$cuoi$next</div><form action="" method="post"><input name="p" type="text" size="2" value=""/><input type="submit" value="Ð?n trang >>"/></form></div>
+var $pagego = </div></div><div class="mainstory">
+<div class="page">$prev$dau$prevvp$prevp<span>$p</span>$nextp$nexttp$cuoi$next</div>
+<form action="" method="post"><input name="p" type="text" size="2" value=""/><input type="submit" value="Ð?n trang >>"/></form></div>
 endif
 print $cut$cham$pagego
 endfunction

@@ -162,33 +162,6 @@ font: 13px Tahoma, Arial, Helvetica, sans-serif;
     color: #fff;
 }
 
-/*------Filelist page-----------*/
-
-.filelist_paging, .page, .xt_pagination {
-    background-color: #D0D7DD;
-	border: 1px solid #ddd;
-	padding: 4px 5px;
- }
-.currentpage, .page span, .filelist_paging span, .xt_pagination .selected {
-	color:#FFFFFF;
-    background-color: #8cafc6;
-    border: 1px solid #417394;
-    padding: 0px 5px 0px 5px;
-}
-
-.filelist_paging a, .page a, .xt_pagination a, .currentpage a {
-    border: 1px solid #417394;
-	background-color: #f2f6f8;
-    padding: 0px 3px 0px 3px;
-    text-decoration: none;
-	margin: 1px;
-}
-.filelist_paging a:hover, .page a:hover, .currentpage a:hover {
- 	border: 1px solid #88beff;
-    padding: 0px 4px 0px 4px;
-    background-color: #f2f6f8;
-    margin: 1px;
-}
 
 /*-------Class list---------*/
 .list1, .online_content, .online_back {
