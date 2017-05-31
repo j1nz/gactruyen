@@ -188,6 +188,10 @@ a:hover {
     border-left: 4px solid #3598DC;
 }
 
+.title span {
+    
+}
+
 .content span {
     display: table;
 }

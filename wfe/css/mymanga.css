@@ -1,0 +1,55 @@
+.container-field {
+
+}
+
+
+.img-cover {
+	text-align: center;
+}
+
+.title-story {
+	max-height: inherit;
+    overflow: inherit;
+}
+
+.title-story > h3 {
+	margin-top: 20px;
+    margin-bottom: 3px;
+    color: #444;
+    max-height: 48px;
+    overflow: hidden;
+    font-weight: 700;
+    font-size: 18px;
+    text-decoration: none;
+}
+
+.author-story {
+	
+}
+
+.meta-story {
+	color: #999;
+    margin-bottom: 3px;
+    font-size: 12px;
+}
+
+.meta-story > span {
+	padding-right: 10px;
+}
+
+.action-story {
+	text-align: center;
+}
+
+.description-story {
+
+}
+
+.info-story {
+
+}
+
+.read-more {
+
+}
+

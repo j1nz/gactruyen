@@ -12,14 +12,6 @@
     <div class="container">
         <div class="widget">
             <div class="title">
-                <a href="<?php echo '/' ?>" >
-                    <span>Trang chủ</span>
-                </a>
-                <span> » </span>
-                <a href="<?php echo ('/' .$this->function .'/' );?>">
-                    <span><?php echo ucfirst(strtolower($this->function));?></span>
-                </a>
-                <span> » </span>
                 <a href="<?php echo '/' .$this->function .'/' .$obj_category->getSlug();?>">
                     <span><?php echo $obj_category->getCategory_name();?></span>
                 </a>

@@ -163,7 +163,7 @@ a:hover {
     border-left: 4px solid #3598DC;
 }
 
-.content span {
+.content > span {
     display: table;
 }
 

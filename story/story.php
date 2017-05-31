@@ -15,7 +15,8 @@
 			<div class="title">
                 <a href="<?php echo '/' ?>" >
                     <span>Trang chủ</span>
-                </a> » 
+                </a>
+                <span> » </span>
                 
                 <span><?php echo ucfirst(strtolower($this->function));?></span>
                 
