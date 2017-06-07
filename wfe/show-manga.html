@@ -75,12 +75,12 @@
 			    		<div class="author-story">
 			    			<h5>Tác giả chưa xác định</h5>
 			    		</div>
-						<div class="status-story">
-			    			<i class="fa fa-check-square-o" aria-hidden="true"></i>
-			    			<span style="text-transform: uppercase;">completed</span>
-						</div>
+						
 			    		<div class="meta-story">
-			    			
+			    			<div class="status-story">
+				    			<i class="fa fa-check-square-o" aria-hidden="true"></i>
+				    			<span style="text-transform: uppercase;">completed</span>
+							</div>
 		                    <span>
 			                    <i class="fa fa-eye" aria-hidden="true"></i>
 			                    546K 
@@ -124,17 +124,46 @@
                   				<span class="read-more" id='hide_more' onclick="hide_more_desc();" href="#">Hide More</span>
 			    		</div>
 
-			    		<div class="action-story" id='btn-last'>
-			    			
-			    			<button class="btn btn-lg btn-info">
-				    			<i class="fa fa-book" aria-hidden="true">
-				    				<span>Read</span>
-				    			</i>
-			    			</button>
+			    		<div class="chapter">
+			    			<div class="chapter-title">
+			    				<i class="fa fa-sun-o" aria-hidden="true"></i>
+			    				<span>Mục lục</span>
+			    				<i class="fa fa-sun-o" aria-hidden="true"></i>
+			    			</div>
 
-			    			<button class="btn btn-lg btn-plus">
-			    				<i class="fa fa-heart-o fa-lg" aria-hidden="true"></i>
-			    			</button>
+			    			<div class="list-chapter">
+			    				<a href="#" class="item-chapter">
+
+				    				<div class="chapter-part">
+				    					Chương 1
+				    				</div>
+				    				<div class="chapter-name">
+				    					Tóm lại đã hết một ngày
+				    				</div>
+				    			</a>
+
+				    			<a href="#" class="item-chapter">
+
+				    				<div class="chapter-part">
+				    					Chương 2
+				    				</div>
+				    				<div class="chapter-name">
+				    					Tóm lại đã hết một ngày
+				    				</div>
+				    			</a>
+
+				    			<a href="#" class="item-chapter">
+
+				    				<div class="chapter-part">
+				    					Chương 3
+				    				</div>
+				    				<div class="chapter-name">
+				    					Tóm lại đã hết một ngày
+				    				</div>
+				    			</a>	
+			    			</div>
+
+			    			
 			    		</div>
 
 			    		<div class="info-story">
@@ -361,24 +390,12 @@
 			    document.getElementById('test-change-size').style.color = '#' + jscolor;
 			}
 
-			function currentTime(){
-				took = took + 0.01;	
-				tookParseFloat = parseFloat(took);
 
-				$('#took').text("Took: " + Math.round(tookParseFloat * 1000) / 1000 + " s");
-			}
 
 			function hide_setting() {
 				$('#button_setting').fadeOut("slow");
 			}
 
-
-			var loopTime = setInterval('currentTime()', 10);
-
-			$(window).bind("load", function() { 
-				clearInterval(loopTime);
-			});
-			
 			$('#resetBackground').click(function () {
 
 			    change_color_background('fff');

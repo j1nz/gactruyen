@@ -1,3 +1,6 @@
 <?php
-    echo '404 error';
+    
 ?>
+<html>
+404
+</html>

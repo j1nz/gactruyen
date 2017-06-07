@@ -25,8 +25,8 @@
             <?php 
                 if ($list_category != null) {
                     foreach($list_category as $row) {
-                        echo '<div class="list_item">';
-                        echo '<img src="http://gactruyen.mobie.in/images/icon/item.png" alt="»">';
+                        echo '<div class="list-item">';
+                        echo '<img src="/upload/images/icon/item.png" alt="»">';
                         echo '<a rel="dofollow" href="/'.$this->function .'/' .$row['slug'] .'" title="'.$row['category_name'] .'">';
                         echo $row['category_name'];
                         echo '</a>';

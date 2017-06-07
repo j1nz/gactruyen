@@ -3,6 +3,7 @@
         private $chapter_id;
         private $story_id;
         private $chapter_name;
+        private $chapter_number;
         private $slug;
         private $content;
         private $description;
@@ -32,6 +33,14 @@
     
     	public function setChapter_name($chapter_name){
     		$this->chapter_name = $chapter_name;
+    	}
+
+        public function getChapter_number(){
+    		return $this->chapter_number;
+    	}
+    
+    	public function setChapter_number($chapter_number){
+    		$this->chapter_number = $chapter_number;
     	}
     
     	public function getSlug(){

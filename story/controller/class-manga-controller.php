@@ -1,5 +1,7 @@
 <?php
-    require_once(ABSPATH .'/include/function/loader/class-load-manga.php');
+    require_once (ABSPATH .'/story/model/class-story.php');
+    require_once (ABSPATH .'/include/function/loader/class-load-chapter.php');
+    
     
 	/**
 	 * MangaController
@@ -17,17 +19,21 @@
        private $function;
        private $category;
        private $manga;
+       private $total_chapter;
 
+        private $obj_story;
         //object of Load Manga class
         private $loader;
+        private $obj_load_chapter;
+        private $obj_load_category;
        
         public function __construct() {
-           
-                  
+           $this->obj_load_category = LoadCategory::getInstance();
+           $this->obj_load_chapter = LoadChapter::getInstance();
            $this->loader = LoadManga::getInstance();
         }
 
-        public function redirect($permalinks) {
+        public function redirect_manga() {
             //un-comment when use at localhost, if up to host don't need nesesary'
             //cut the first index of array 
             //array_shift($permalinks);
@@ -35,7 +41,8 @@
             // host at index 0
             // functrion at index 1
             // category at index 2
-        
+            $permalinks = explode('/',$_SERVER['REQUEST_URI']);
+            
             $this->host = $permalinks[0];
             $this->function = $permalinks[1];
             $this->category = $permalinks[2];
@@ -45,31 +52,56 @@
             
             $this->manga = parent::get_param_url($permalinks[3]);
             
-            // size > 4 it mean is user request story's chapter
-            if ($size > 4) {
-                if ($permalinks[4] != null || $permalinks[4] != '') {
-                    
-                    $chapter = parent::get_param_url($permalinks[4]);
-                    if ($chapter == 'index' || $chapter == 'index.html' || $chapter == 'index.php') {
-                        self::check_link_manga($this->manga, $this->category);
-                        
-                    } else {
-                        /**
-                         * @todo check slug chapter
-                         * @todo load content with chapter
-                         * 
-                         * @since
-                         * @version 1.0
-                         */
-                        
-                        echo $chapter;
-                        echo '<script>alert(' .'"load chapter of manga"'. ')</script>';
-                    }
+            if (self::check_link_manga($this->manga, $this->category)) {
+                $this->obj_story = new Story();
+                $result_story_id = $this->loader->get_story_by_story_slug($this->manga);
+                $this->obj_story->setStory_id($result_story_id['story_id']);
+                
+                // Lay tong so luong chuong cua mot truyen
+                $this->total_chapter = $this->obj_load_chapter->get_total_chapter_of_story($this->obj_story->getStory_id());
+                
+                if ($this->total_chapter == 1) {
+                    self::view_content();
                 } else {
-                    self::check_link_manga($this->manga, $this->category);
+                    
+                    // size > 4 it mean is user request story's chapter
+                    if ($size > 4) {
+                        $chapter = parent::get_param_url($permalinks[4]);
+                        if ($chapter != null || $chapter != '') {
+                            if ($chapter == 'index' || $chapter == 'index.html' || $chapter == 'index.php') {
+                                
+                                self::load_manga($this->manga, $this->category);
+                                
+                            } else {
+                                
+                                
+                                require_once (ABSPATH .'/story/controller/class-chapter-controller.php');
+                                
+                                $obj_chapter = new ChapterController();
+                                
+                                $obj_chapter->redirect($permalinks);
+                                /**
+                                 * @todo check slug chapter
+                                 * @todo load content with chapter
+                                 * 
+                                 * @since
+                                 * @version 1.0
+                                 */
+                                
+                            
+                            }
+                        } else {
+                            self::load_manga($this->manga, $this->category);
+                            
+                        }
+                    } else {
+                        self::load_manga($this->manga, $this->category); 
+                        
+                    }
                 }
+                
             } else {
-                self::check_link_manga($this->manga, $this->category);
+                parent::load_404();
             }
             
         }
@@ -80,62 +112,84 @@
             $flag_manga = $this->loader->check_story_by_slug($manga, $category);
             
             if ($flag_manga == true) {
-                require_once (ABSPATH .'/story/model/class-story.php');
-                require_once (ABSPATH .'/include/function/loader/class-load-chapter.php');
-                require_once(ABSPATH .'/story/model/class-category.php');
-                
-                $obj_load_chapter = LoadChapter::getInstance();
-                $obj_load_category = LoadCategory::getInstance();
-                $obj_story = new Story();
-                $obj_category = new Category();
-               /**
-                 * @todo check story have chapter
-                 * 
-                 * @todo 
-                 * - if story don't have any chapter display page introduction
-                 *      + display button read if click it -> load content, and PAGINATION it
-                 * 
-                 * - if have chapter display page with all chapter
-                 *      + display link to each chapter if click it -> load content, and PAGINATION it
-                 *      + display button read -> if click button foward chapter 1, load content
-                 * 
-                 * @todo load content
-                 * @todo load content with chapter
-                 * 
-                 * @todo pagnition content, with each page have 20,000 word
-                 * 
-                 * @since 2017-05-30
-                 * @version 1.0
-                 */
-                
-                $result_story = $this->loader->get_story_by_story_slug($this->manga);
-                $obj_story->setStory_id($result_story['story_id']);
-                $obj_story->setStory_name($result_story['story_name']);
-                $obj_story->setSlug($result_story['slug']);
-                
-                $result_category = $obj_load_category->get_category_by_slug($this->category);
-                $obj_category->setCategory_id($result_category['category_id']);
-                $obj_category->setCategory_name($result_category['category_name']);
-                $obj_category->setSlug($result_category['slug']);
-
-                $total_chapter = $obj_load_chapter->get_total_chapter_of_story($obj_story->getStory_id());
-
-                include (ABSPATH .'/story/view/view-manga.php');
-                exit;
-            } else {
-                parent::load_404();
-            }
+                return true;
+            } 
             
+            return false;
         }
         
         // lay ra story va kiem tra ben trong co chapter nao khong, neu co chapter forward it to class chapter controller
         // neu khong se load len noi dung
-        public function load_manga($permalinks) {
+        public function load_manga($manga, $category) {
+            // Lấy danh sách link của table story
+            $flag_manga = $this->loader->check_story_by_slug($manga, $category);
+            
+            if ($flag_manga == true) {
+                self::view_manga();
+                //exit;
+            }
             
         }
         
-        public function view_manga() {
+        public function view_content() {
+            echo 'content here';
+            exit;
+        }
         
+        public function view_manga() {
+            //ob_end_flush();
+            
+            
+            
+            $this->obj_category = new Category();
+           /**
+             * @todo check story have chapter
+             * 
+             * @todo 
+             * - if story don't have any chapter display page introduction
+             *      + display button read if click it -> load content, and PAGINATION it
+             * 
+             * - if have chapter display page with all chapter
+             *      + display link to each chapter if click it -> load content, and PAGINATION it
+             *      + display button read -> if click button foward chapter 1, load content
+             * 
+             * @todo load content
+             * @todo load content with chapter
+             * 
+             * @todo pagnition content, with each page have 20,000 word
+             * 
+             * @since 2017-05-30
+             * @version 1.0
+             */
+            
+            
+            
+            $result_story = $this->loader->get_story_by_id($this->obj_story->getStory_id());
+            $this->obj_story->setStory_name($result_story['story_name']);
+            $this->obj_story->setCategory_id($result_story['category_id']);
+            $this->obj_story->setDescription($result_story['description']);
+            $this->obj_story->setAuthor($result_story['author']);
+            $this->obj_story->setCover($result_story['cover']);
+            $this->obj_story->setOther_name($result_story['other_name']);
+            $this->obj_story->setView($result_story['view']);
+            $this->obj_story->setSlug($result_story['slug']);
+            $this->obj_story->setStatus($result_story['status']);
+            $this->obj_story->setLike($result_story['like']);
+            
+            $result_category = $this->obj_load_category->get_category_by_slug($this->category);
+            $this->obj_category->setCategory_id($result_category['category_id']);
+            $this->obj_category->setCategory_name($result_category['category_name']);
+            $this->obj_category->setSlug($result_category['slug']);
+            
+            
+            
+            // Lay danh sach chuong cua moi truyen
+            $list_chapter = $this->obj_load_chapter->get_chapter_of_story($this->obj_story->getStory_id());
+
+            //ob_end_clean();
+            //ob_get_clean();
+            include_once (ABSPATH .'/story/view/view-manga.php');
+            exit;
         }
 	}
 ?>

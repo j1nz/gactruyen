@@ -2,7 +2,7 @@ var text_desc = '';
 var short_text_desc = '';
 var remain_text_desc = '';
 
-jQuery(document).ready(function($) {
+$(document).ready(function($) {
 	$('#show_more').show();
 	$('#hide_more').hide();
 	$('#btn-last').hide();
@@ -10,7 +10,7 @@ jQuery(document).ready(function($) {
 	text_desc = $('#description').text();
 	var leng_desc = text_desc.length;
 
-	var i = 1600;
+	var i = 900;
 	if (leng_desc > i) {
 		
 		var x = '';
@@ -37,12 +37,12 @@ function show_more_desc () {
 	$('#description').text(remain_text_desc);
 	$('#show_more').hide();
 	$('#hide_more').show();
-	$('#btn-last').show();
+	
 }
 
 function hide_more_desc () {
 	$('#description').text(short_text_desc);
 	$('#show_more').show();
 	$('#hide_more').hide();
-	$('#btn-last').hide();
+	
 }

@@ -63,28 +63,44 @@
             
             return false;
         }
-
+        
+        function get_chapter_id_by_slug($slug, $story_id) {
+            $db_pdo = PdoConnection::getInstance();
+            $db_pdo->get_conect_pdo();
+            
+            $__sql = 'select chapter_id, story_id from chapter where story_id = :storyId AND slug = :slug';
+            $__paremeter = array(
+                'storyId' => $story_id,
+                'slug' => $slug
+            );
+            
+            $__chapter = $db_pdo->q_item_with_param($__sql, $__paremeter);
+            
+            return $__chapter;
+        }
+        
         /**
          * LoadChapter::get_chapter_by_slug()
          * 
          * @since 2017-05-30
          * @param mixed $story_id
          * @param mixed $slug
+         * @version 1.1
          * @return
          */
-        function get_chapter_by_slug($story_id, $slug) {
+        function get_chapter_by_id($story_id, $chapter_id) {
             $db_pdo = PdoConnection::getInstance();
             $db_pdo->get_conect_pdo();
             
-            $__sql = 'select chapter_id, story_id, chapter_name, slug, content from chapter where story_id = :id AND slug = :slug';
+            $__sql = 'select chapter_id, story_id, chapter_name, chapter_number, slug, content from chapter where story_id = :storyId AND chapter_id = :chapterId';
             $__paremeter = array(
-                'story_id' => $story_id,
-                'slug' => $slug
+                'storyId' => $story_id,
+                'chapterId' => $chapter_id
             );
             
-            $__chapter_slug = $db_pdo->q_item_with_param($__sql, $__paremeter);
+            $__chapter = $db_pdo->q_item_with_param($__sql, $__paremeter);
             
-            return $__chapter_slug;
+            return $__chapter;
         }
         
         /**
@@ -125,7 +141,7 @@
             $db_pdo = PdoConnection::getInstance();
             $db_pdo->get_conect_pdo();
             
-            $__sql = 'select chapter_id, story_id, chapter_name, slug from chapter where story_id = :id';
+            $__sql = 'select chapter_id, chapter_number, chapter_name, slug from chapter where story_id = :id';
             $__paremeter = array(
                 'id' => $story_id
             );

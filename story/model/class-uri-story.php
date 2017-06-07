@@ -1,11 +1,20 @@
 <?php
 	class UriStoryModel {
+        private static $_instance;
+        
         private $host;
         private $function;
         private $category;
         private $manga;
         private $chapter;
         private $option;
+       
+        public static function getInstance() {
+            if (!(self::$_instance instanceof self)) {
+                self::$_instance = new self();
+            }
+            return self::$_instance;
+        }
        
         public function getHost(){
     		return $this->host;

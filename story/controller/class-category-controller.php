@@ -21,7 +21,7 @@
          * @return
          */
         public function __construct($host, $function, $category_id) {
-       
+            
               $this->host = $host;
               $this->function = $function;
               $this->category_id = $category_id;
@@ -41,6 +41,8 @@
             
             //un-conmment when finish test by 'echo' command
             //ob_end_clean();
+            
+            
               
             /**
              * @todo get all story of category id

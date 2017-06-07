@@ -102,7 +102,7 @@
             $db_pdo = PdoConnection::getInstance();
             $db_pdo->get_conect_pdo();
             
-            $__sql = 'SELECT story_id, story_name, slug FROM story WHERE slug = :link';
+            $__sql = 'SELECT story_id FROM story WHERE slug = :link';
             $__paremeter = array(
                 'link' => $slug
             );
@@ -110,6 +110,20 @@
             $__manga_slug = $db_pdo->q_item_with_param($__sql, $__paremeter);
             
             return $__manga_slug;
+        }
+        
+        public function get_story_by_id($story_id) {
+            $db_pdo = PdoConnection::getInstance();
+            $db_pdo->get_conect_pdo();
+            
+            $__sql = 'SELECT * FROM story WHERE story_id = :story_id';
+            $__paremeter = array(
+                'story_id' => $story_id
+            );
+            
+            $__result = $db_pdo->q_item_with_param($__sql, $__paremeter);
+            
+            return $__result;
         }
         
         public function get_total_records_table($category_id) {

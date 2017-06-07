@@ -5,10 +5,10 @@
 //}
 
 // lấy font chữ mực định
-var default_font_size = $('#test-change-size').css('fontSize');
+var default_font_size = $('#content_story').css('fontSize');
 
 //những phần tử sẽ thực hiện khi chức năng được gọi
-var elm = $('#test-change-size');
+var elm = $('#content_story');
 
 // ấn định kích thước font chữ mặc định và xóa bỏ px từ giá trị
 //var size = str_replace(reset, 'px', '');

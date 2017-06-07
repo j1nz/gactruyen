@@ -24,7 +24,7 @@
             <?php
                 if ($list_manga != null) {
                    foreach($list_manga as $row) {
-                        echo '<div class="list_item">';
+                        echo '<div class="list-item">';
                         echo '<img src="/upload/images/icon/item.png" alt="»">';
                         echo '<a rel="dofollow" href="/'.$this->function .'/' .$obj_category->getSlug() .'/' .$row['slug'] .'" title="'.$row['story_name'] .'">';
                         echo $row['story_name'];

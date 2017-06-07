@@ -12,6 +12,7 @@
         private $update_time;
         private $slug;
         private $status;
+        private $like;
         
         /**
          * Magic method 
@@ -126,6 +127,13 @@
     	public function setStatus($status){
     		$this->status = $status;
     	}
-
+        
+        public function getLike(){
+    		return $this->like;
+    	}
+    
+    	public function setLike($like){
+    		$this->like = $like;
+    	}
 	}
 ?>

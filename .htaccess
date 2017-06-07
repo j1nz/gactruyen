@@ -8,6 +8,8 @@
     
     RewriteRule ^truyen$ story/index.php
     
+    
+    
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ /handle.php?path=$1 [NC,L,QSA]
@@ -15,7 +17,8 @@
     # RewriteRule ^index.html$ index.php
     # ForceType application/x-httpd-php
     # AddType text/css .css
-
+    # AddType text/html .html
+    
 	# RewriteRule ^index\.php$ – [L]
 	# RewriteCond %{REQUEST_FILENAME} !-f
     # RewriteCond %{REQUEST_FILENAME} !-d

@@ -18,7 +18,7 @@
             require_once(ABSPATH .'/include/function/class-function-controller.php');
         
     		$func = new FunctionController();
-            $func->redirect($permalinks);
+            $func->redirect_function($permalinks);
         } else {
             require(ABSPATH .'/include/function/class-base-controller.php');
             
