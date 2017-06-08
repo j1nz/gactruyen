@@ -5,20 +5,21 @@
 				<div class="news">
 					<div class="share">
 	                	<a href="smsto:01222558948?body=Hay doc bai viet nay <xt:url>">
-	                    	<img src="#" alt="SMS" />
-	                	</a>
-	                  	<a title="Đăng lên Google" target="_blank" href="https://www.google.com.vn/bookmarks/mark?op=add&amp;bkmk=<xt:url>&amp;title=$name_bv&amp;annotation=">
-	                    	<img src="#" alt="Google" />
-	                	</a>
-	                  	<a target="_blank" href="http://link.apps.zing.vn/pro/view/conn/share?u=<xt:url>">
-	                    	<img src="#" alt="Zing" />
-	                	</a>
-	                  	<a href="http://facebook.com/sharer/sharer.php?u=<xt:url>" target="_blank">
-	                    	<img src="#" alt="Facebook" />
-	                	</a>
-	                	<a href="http://twitter.com/share?url=<xt:url>" target="_blank">
-	                    	<img src="#" alt="Twitter" />
-	                	</a>
+                            <img src="/upload/images/icon/sms.png" alt="SMS" />
+                        </a>
+                          <a title="Đăng lên Google" target="_blank" href="#">
+                            <img src="/upload/images/icon/gg.png" alt="Google" />
+                        </a>
+                          <a target="_blank" href="#">
+                            <img src="/upload/images/icon/zm.png" alt="Zing" />
+                        </a>
+                          <a href="#" target="_blank">
+                            <img src="/upload/images/icon/fb.png" alt="Facebook" />
+                        </a>
+                        <a href="#" target="_blank">
+                            <img src="/upload/images/icon/tt.png" alt="Twitter" />
+                        </a>
+                    </div>
 	            	</div>
 					<div class="bbcode">
 						<span>URL</span>

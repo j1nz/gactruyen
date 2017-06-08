@@ -192,5 +192,16 @@
 }
 
 .content-story {
+    word-wrap: break-word!important;
+    font-weight: 100;
+    line-height: 2em;
   margin-top: 15px;
+}
+
+.chapter-end {
+    text-align: center;
+    margin-top: 20px;
+    text-decoration: underline;
+    color: blueviolet;
+    font-size: 15px;
 }

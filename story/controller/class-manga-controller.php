@@ -22,6 +22,7 @@
        private $total_chapter;
 
         private $obj_story;
+        private $obj_chapter;
         //object of Load Manga class
         private $loader;
         private $obj_load_chapter;
@@ -69,12 +70,8 @@
                         $chapter = parent::get_param_url($permalinks[4]);
                         if ($chapter != null || $chapter != '') {
                             if ($chapter == 'index' || $chapter == 'index.html' || $chapter == 'index.php') {
-                                
                                 self::load_manga($this->manga, $this->category);
-                                
                             } else {
-                                
-                                
                                 require_once (ABSPATH .'/story/controller/class-chapter-controller.php');
                                 
                                 $obj_chapter = new ChapterController();
@@ -87,12 +84,9 @@
                                  * @since
                                  * @version 1.0
                                  */
-                                
-                            
                             }
                         } else {
                             self::load_manga($this->manga, $this->category);
-                            
                         }
                     } else {
                         self::load_manga($this->manga, $this->category); 
@@ -131,8 +125,39 @@
             
         }
         
+        // 23h00 8-6-2017
         public function view_content() {
-            echo 'content here';
+            $this->obj_category = new Category();
+            $obj_chapter = new ChapterController();
+            $this->obj_chapter = new Chapter();
+            
+            $this->obj_chapter->setChapter_id($obj_chapter->get_chapter_id_by_chapter_slug($this->obj_story->getStory_id(), ''));
+            
+            $__result_chapter = $this->obj_load_chapter->get_chapter_by_id($this->obj_story->getStory_id(), $this->obj_chapter->getChapter_id());
+            $this->obj_chapter->setChapter_id($__result_chapter['chapter_id']);
+            $this->obj_chapter->setChapter_name($__result_chapter['chapter_name']);
+            $this->obj_chapter->setChapter_number($__result_chapter['chapter_number']);
+            $this->obj_chapter->setStory_id($__result_chapter['story_id']);
+            $this->obj_chapter->setSlug($__result_chapter['slug']);
+            $this->obj_chapter->setContent($__result_chapter['content']);
+
+            $result_story = $this->loader->get_story_by_id($this->obj_story->getStory_id());
+            $this->obj_story->setStory_name($result_story['story_name']);
+            $this->obj_story->setCategory_id($result_story['category_id']);
+            $this->obj_story->setAuthor($result_story['author']);
+            $this->obj_story->setOther_name($result_story['other_name']);
+            $this->obj_story->setView($result_story['view']);
+            $this->obj_story->setSlug($result_story['slug']);
+            $this->obj_story->setStatus($result_story['status']);
+            $this->obj_story->setLike($result_story['like']);
+            
+            $result_category = $this->obj_load_category->get_category_by_slug($this->category);
+            $this->obj_category->setCategory_id($result_category['category_id']);
+            $this->obj_category->setCategory_name($result_category['category_name']);
+            $this->obj_category->setSlug($result_category['slug']);
+            
+            //echo 'content here';
+            include_once (ABSPATH .'/story/view/view-only-content.php');
             exit;
         }
         

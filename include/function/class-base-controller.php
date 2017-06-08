@@ -24,7 +24,7 @@
         }
         
         public function load_404() {
-            ob_end_clean();
+            //ob_end_clean();
             header('HTTP/1.0 404 Not Found');
 
             header('Location: ' .'/404.php');

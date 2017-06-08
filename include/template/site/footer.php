@@ -4,22 +4,22 @@
         </div>
         <div class="news">
           <div class="share">
-                    <a href="smsto:01222558948?body=Hay doc bai viet nay <xt:url>">
-                        <img src="/upload/images/icon/sms.png" alt="SMS" />
-                    </a>
-                      <a title="Đăng lên Google" target="_blank" href="#">
-                        <img src="/upload/images/icon/gg.png" alt="Google" />
-                    </a>
-                      <a target="_blank" href="#">
-                        <img src="/upload/images/icon/zm.png" alt="Zing" />
-                    </a>
-                      <a href="#" target="_blank">
-                        <img src="/upload/images/icon/fb.png" alt="Facebook" />
-                    </a>
-                    <a href="#" target="_blank">
-                        <img src="/upload/images/icon/tt.png" alt="Twitter" />
-                    </a>
-                </div>
+                <a href="smsto:01222558948?body=Hay doc bai viet nay <xt:url>">
+                    <img src="/upload/images/icon/sms.png" alt="SMS" />
+                </a>
+                  <a title="Đăng lên Google" target="_blank" href="#">
+                    <img src="/upload/images/icon/gg.png" alt="Google" />
+                </a>
+                  <a target="_blank" href="#">
+                    <img src="/upload/images/icon/zm.png" alt="Zing" />
+                </a>
+                  <a href="#" target="_blank">
+                    <img src="/upload/images/icon/fb.png" alt="Facebook" />
+                </a>
+                <a href="#" target="_blank">
+                    <img src="/upload/images/icon/tt.png" alt="Twitter" />
+                </a>
+            </div>
           <div class="bbcode">
             <span>URL</span>
             <textarea id="url" cols="20" rows="1"></textarea>

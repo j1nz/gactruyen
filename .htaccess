@@ -6,10 +6,8 @@
 
     RewriteBase /
     
-    RewriteRule ^truyen$ story/index.php
-    
-    
-    
+    RewriteRule ^truyen$ story
+
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteRule ^(.*)$ /handle.php?path=$1 [NC,L,QSA]
@@ -24,10 +22,10 @@
     # RewriteCond %{REQUEST_FILENAME} !-d
     # RewriteRule . index.php [L]
 
-	# ErrorDocument 401 /error/401.php
-	# ErrorDocument 403 /403.php
+	ErrorDocument 401 /401.php
+	ErrorDocument 403 /403.php
 	# ErrorDocument 404 /gactruyen/handle.php
-	# ErrorDocument 500 /error/500.php
+	ErrorDocument 500 /500.php
     
     # for all invalid links (non existing files):
     # RewriteCond %{REQUEST_FILENAME} !-f

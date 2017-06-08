@@ -55,15 +55,15 @@
                     
                     <div class="chapter-pager">
                     	<div class="pager">
-                    		<a href="#" title="">Chương trước</a>
+                    		<a href="<?php echo $page_previous; ?>" title="">Chương trước</a>
                     	</div>
                     
                     	<div class="pager">
-                    		<a href="#" title="">Mục lục</a>
+                    		<a href="#" id="table_content" title="">Mục lục</a>
                     	</div>
                     
                     	<div class="pager">
-                    		<a href="#" title="">Chương sau</a>
+                    		<a href="<?php echo $page_next; ?>" title="">Chương sau</a>
                     	</div>
                     </div>
                     
@@ -75,17 +75,21 @@
                     	<?php echo $this->obj_chapter->getContent(); ?>
                     </div>
                     
+                    <div class="chapter-end" >
+                        <span>End chapter <?php echo $page_current; ?></span>
+                    </div>
+                    
                     <div class="chapter-pager">
                     	<div class="pager">
-                    		<a href="#" title="">Chương trước</a>
+                    		<a href="<?php echo $page_previous; ?>" title="">Chương trước</a>
                     	</div>
                     
                     	<div class="pager">
-                    		<a href="#" title="">Mục lục</a>
+                    		<a href="#" id="table_content" title="">Mục lục</a>
                     	</div>
                     
                     	<div class="pager">
-                    		<a href="#" title="">Chương sau</a>
+                    		<a href="<?php echo $page_next; ?>" title="">Chương sau</a>
                     	</div>
                     </div>
 
@@ -106,6 +110,6 @@
         </div>
     
     </div>
-    <?php include_once(ABSPATH .'/include/template/site/footer-manga.php'); ?>
+    <?php include_once(ABSPATH .'/include/template/site/footer-chapter.php'); ?>
 </body>
 </html>

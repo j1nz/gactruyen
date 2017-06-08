@@ -1,6 +1,7 @@
 <?php
     require_once('class-base-controller.php');
     require_once(ABSPATH .'/include/function/class-story-controller.php');
+    require_once(ABSPATH .'/story/controller/class-chapter-controller.php');
     require_once(ABSPATH .'/story/model/class-uri-story.php');
     
     class FunctionController extends BaseController {
@@ -22,9 +23,7 @@
         }
         
         public function get_param_url($short_url) {
-            
             $param_url = explode('?', $short_url);
-            
             
             $page_request = $param_url[0];
             
@@ -47,8 +46,7 @@
                         self::process_chapter_link($permalinks);
                         exit;
                     }
-                    echo $this->story;
-                    echo 'load story';
+                    self::load_manga();
                     exit;
                 }
                 
@@ -60,29 +58,33 @@
         }
         
         private function process_chapter_link($permalinks) {
-
-
             $check_story_or_chapter = self::get_param_url($permalinks[4]);
             
             // Tru?c d?u '?' có ký t? nào không n?u có (khác null) thì vào if
             if ($check_story_or_chapter != null) {
                 if ($check_story_or_chapter == 'index' || $check_story_or_chapter == 'index.php'){
-                    echo 'index';
+                    self::load_manga();
                     exit;
                 } else {
                     
-                    echo $this->chapter;
-                    echo 'load chapter';
+                    self::load_chapter();
                     exit;
                 }
-                
             } else {
-                echo $this->story;
-                echo 'load story';
+                self::load_manga();
                 exit;
             }
         }
         
+        public function load_manga() {
+            $load_manga = new MangaController();
+            $load_manga->redirect_manga();
+        }
+        
+        public function load_chapter() {
+            $load_chapter = new ChapterController();
+            $load_chapter->redirect();
+        }
         
         public function redirect_function($permalinks) {
 
@@ -145,8 +147,5 @@
                 
             }
         }
-        
-        
-        
     }
 ?>

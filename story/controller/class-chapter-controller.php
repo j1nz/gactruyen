@@ -29,7 +29,9 @@
            $this->obj_load_chapter = LoadChapter::getInstance();
         }
         
-        public function redirect($permalinks) {
+        public function redirect() {
+            $permalinks = explode('/',$_SERVER['REQUEST_URI']);
+            
             $this->host = $permalinks[0];
             $this->function = $permalinks[1];
             
@@ -105,6 +107,22 @@
             $this->obj_chapter->setStory_id($__result_chapter['story_id']);
             $this->obj_chapter->setSlug($__result_chapter['slug']);
             $this->obj_chapter->setContent($__result_chapter['content']);
+            
+            $explode_chap = explode("-", $this->obj_chapter->getSlug());
+            
+            $next = $explode_chap[1] + 1;
+            $previous = $explode_chap[1] - 1;
+            
+            if ($next > $this->total_chapter) {
+                $next = $this->total_chapter;
+            }
+            if ($previous < 1) {
+                $previous = 1;
+            }
+            
+            $page_next = $explode_chap[0] .'-' .$next;
+            $page_current = $explode_chap[1];
+            $page_previous = $explode_chap[0] .'-' .$previous;
             
             $result_story = $this->obj_load_story->get_story_by_id($this->obj_story->getStory_id());
             $this->obj_story->setStory_name($result_story['story_name']);
