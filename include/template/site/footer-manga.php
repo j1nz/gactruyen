@@ -1,4 +1,4 @@
-<div class="widget">
+            <div class="widget">
 				<div class="title">
 					<span>Chia sẻ</span>
 				</div>
@@ -34,41 +34,38 @@
 			</div>
 			
 		</div>
-
-      	////////////////////////
-      <footer>
+    <footer>
          <div class="container">
             
             <div class="footer" align="center">
-               
-            	<a href="/gioi-thieu.html" >
-               	<span class="footer_title">Giới thiệu</span>
-               	</a>
-
-                <span> | </span> 
-
-            	<a href="/dieu-khoan-su-dung.html" >
-                	<span class="footer_title">Điều khoản sử dụng</span>
+                <a href="/" >
+                    <span class="footer_title">Trang chủ</span>
                 </a>
-
+        
                 <span> | </span> 
 
+            	<a href="/gioi-thieu.html" >
+               	    <span class="footer_title">Giới thiệu</span>
+               	</a>
+        
+                <span> | </span> 
+        
                 <a href="/lien-he.html" >
                 	<span class="footer_title">Liên hệ</span>
                 </a>
-
+        
                 <div class="footer_copyright">
-                	<span>Copyright ©2014 by </span>
-
-               		<a rel="author" href="https://www.google.com/">
+                	<span>Copyright ©<?php echo date('Y')?> by </span>
+        
+               		<a rel="author" href="/">
                			<span>Gác Truyện™</span>
                		</a>
-
-					<div class="footer_took">
-						<span id="took">Took: 0.1 s</span>
-					</div>
+        
+        			<div class="footer_took">
+        				<span id="took">Took: 0.1 s</span>
+        			</div>
                 </div>
-               
+           
             </div>
          </div>
          <div class="container">
@@ -95,14 +92,11 @@
             </div> -->
          </div>
 
-         //include setting modal
-
         <script src="/include/js/jquery-2.2.2.js"></script>
         <script src="/include/js/jscolor.js"></script>
         <script src="/include/js/change_font_size.js"></script>
         <script src="/include/js/view_manga.js"></script>
-        <!-- <script type="text/javascript" src="js/jquery.fontselector.js"></script> -->
-
+        
         <script type="text/javascript">
 			var link = window.location.href;
         	var title = window.document.title;

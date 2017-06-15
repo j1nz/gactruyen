@@ -106,6 +106,10 @@
             //ob_end_clean();
             header('HTTP/1.0 200 OK');
             
+            $obj_load_function = LoadFunction::getInstance();
+                
+            $obj_result_function = $obj_load_function->get_function_by_slug($this->function);
+            
             $list_category = $this->loader->get_category_all();
             
             include_once(ABSPATH .'/story/story.php');
@@ -122,7 +126,7 @@
         public function load_category($category_id) {
             
             //ob_end_flush();
-            $obj_category = new CategoryController($this->host, $this->function, $category_id);
+            $obj_category = CategoryController::getInstance($this->host, $this->function, $category_id);
             
             $obj_category->view_category();
         }

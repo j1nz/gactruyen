@@ -23,7 +23,9 @@
             <div class="content">
                 <div class="container-field">
 		    		<div class="img-cover">
-		    			<img src="/upload/images/cover/truyen-ngan/until_you.jpg" width="180px" height="281px" alt="anh bia">
+		    			<img src="<?php echo $this->obj_story->getCover();?>" width="180px" height="281px" 
+                            alt="<?php echo $this->obj_story->getStory_name() .' - ' .$this->obj_story->getOther_name() .', ' .$this->obj_story->getAuthor();?>" 
+                            title="<?php echo $this->obj_story->getStory_name() .' - ' .$this->obj_story->getAuthor();?>">
 		    		</div>
 
 		    		<div class="title-story">
@@ -34,19 +36,18 @@
 		    			<div class="status-story">
 			    			<h5><?php echo $this->obj_story->getAuthor() ?> </h5>
 						</div>
-	                    <span>
+	                    <span title="<?php echo 'lượt xem ' .$this->obj_story->getStory_name();?>">
 		                    <i class="fa fa-eye" aria-hidden="true"></i>
 		                    <?php echo $this->obj_story->getView() ?> 
 	                    </span>
-                		<span>
+                		<span title="<?php echo 'lượt like ' .$this->obj_story->getStory_name();?>">
 		                    <i class="fa fa-thumbs-o-up" aria-hidden="true"></i>
 		                    <?php echo $this->obj_story->getLike() ?>  
 	                    </span>
-	                    <span>
+	                    <span title="<?php echo 'tổng số chương của truyện ' .$this->obj_story->getStory_name();?>">
 		                    <i class="fa fa-list" aria-hidden="true"></i>
-		                    <?php //echo $this->total_chapter ?>
+		                    <?php echo $this->total_chapter ?> 
 	                    </span>
-            
 		    		</div>
 
 		    		<div class="content-story" style="border-top: 1px dotted darkslategray;padding-top: 10px;" id='content_story'>

@@ -149,14 +149,13 @@ a:hover {
     #widget_quote_fixed {
         table-layout: fixed;
         width: 100%;
-        height: 48px;
         position: fixed;
         top: 0;
         left: 0;
         z-index: 999;
         padding: 0 10px;
         color: #333;
-        background: rgba(255, 255, 255, 0.9);
+        background: rgba(255, 255, 255, 1);
         -webkit-box-shadow: none;
         box-shadow: none;
         border-bottom: 1px solid #dcdcdc;

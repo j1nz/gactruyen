@@ -17,7 +17,7 @@
                 </a>
                 <span> » </span>
 
-                <span><?php echo $this->obj_chapter->getChapter_name(); ?></span>
+                <span><?php echo 'Chương ' .$page_current; ?></span>
 
             </div>
             <div class="content">
@@ -50,12 +50,10 @@
 	                    </span>
             
 		    		</div>
-                    
-                    
-                    
+
                     <div class="chapter-pager">
                     	<div class="pager">
-                    		<a href="<?php echo $page_previous; ?>" title="">Chương trước</a>
+                    		<a href="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug() .'/' .$page_previous .'/'; ?>" title="">Chương trước</a>
                     	</div>
                     
                     	<div class="pager">
@@ -63,7 +61,7 @@
                     	</div>
                     
                     	<div class="pager">
-                    		<a href="<?php echo $page_next; ?>" title="">Chương sau</a>
+                    		<a href="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug() .'/' .$page_next .'/'; ?>" title="">Chương sau</a>
                     	</div>
                     </div>
                     
@@ -72,7 +70,7 @@
                     </div>
                     
                     <div class="content-story" id='content_story'>
-                    	<?php echo $this->obj_chapter->getContent(); ?>
+                        <?php echo $this->obj_chapter->getContent(); ?>
                     </div>
                     
                     <div class="chapter-end" >
@@ -81,7 +79,7 @@
                     
                     <div class="chapter-pager">
                     	<div class="pager">
-                    		<a href="<?php echo $page_previous; ?>" title="">Chương trước</a>
+                    		<a href="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug() .'/' .$page_previous .'/'; ?>" title="">Chương trước</a>
                     	</div>
                     
                     	<div class="pager">
@@ -89,7 +87,7 @@
                     	</div>
                     
                     	<div class="pager">
-                    		<a href="<?php echo $page_next; ?>" title="">Chương sau</a>
+                    		<a href="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug() .'/' .$page_next .'/'; ?>" title="">Chương sau</a>
                     	</div>
                     </div>
 
@@ -101,7 +99,7 @@
 		    					Tags
 		    				</span>
 		    				<span>
-							fjdigjdfjifjgifjgijvijfibjhuidhfbuhfbhnjubnfnbngbifhgiujdfgodfoigujfdoigjoifdjgiodfjgiodfjgifdjgoidjfogijfdojgofdjgoifdjgojdfojgfoijgdojgofjdoijgodifjgodfjgodjfgodjfgodfjgodjfgojfdogjfoijgodjgohuiasiyhkjhdsvjhhfyhdsiuyihvkfh
+							// tag name
 							</span>
 		    			</div>
 		    		</div>

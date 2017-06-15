@@ -1,7 +1,13 @@
 <?php
     require_once( dirname( __FILE__ ) . '/load.php' );
+    require_once (ABSPATH. '/include/function/loader/class-load-auto.php');
+    
+    $sDirectory     = 'include/function/auto';
+    
+    $obj_load_autoFile = LoadAutoFile::getInstance();
+    
+    $dirAF = $obj_load_autoFile->dirAutoFile($sDirectory);
 ?>
-
 <!DOCTYPE html>
 <html>
 	<head>
@@ -13,8 +19,14 @@
   		<div class="container">
 
   			<div class="widget_quote">
-				<div class="title"><span>Tr&iacute;ch dẫn hay: </span></div>
-				<div class="content"><i>//random quote //</i></div>
+				<div class="title">
+                
+                </div>
+				<div class="content" style="word-wrap: break-word;">
+                    <span style="color: red; font-weight:  bold;">Tr&iacute;ch dẫn hay: </span>
+                        <i><?php include_once ($dirAF) ?></i>
+                    </div>
+                </div>
   			</div>
 
 		</div>
@@ -73,8 +85,7 @@
 			
 
   		</div>
-
-		////////////////////////
       <?php include_once(ABSPATH .'/include/template/site/footer.php'); ?>
+      
    </body>
 </html>

@@ -29,7 +29,9 @@ $(document).ready(function($) {
 
 	}
 
-	
+	//$(document).bind("contextmenu",function(){
+//        return false;
+//    });
 });
 
 function show_more_desc () {

@@ -12,7 +12,6 @@
      */
     class LoadChapter {
         private static $_instance;
-        private $connect;
         
         /**
          * LoadChapter::__construct()

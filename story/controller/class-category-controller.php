@@ -4,7 +4,7 @@
     require_once(ABSPATH .'/story/model/class-category.php');
     
 	class CategoryController {
-
+        protected static $_instance;
         protected $host;
         protected $function;
         protected $category_name;
@@ -27,6 +27,13 @@
               $this->category_id = $category_id;
               
               $this->loader = LoadCategory::getInstance();
+        }
+        
+        public static function getInstance($host, $function, $category_id) {
+            if (!(self::$_instance instanceof self)) {
+                self::$_instance = new self($host, $function, $category_id);
+            }
+            return self::$_instance;
         }
         
         /**
@@ -118,6 +125,9 @@
             $obj_category->setCategory_name($item_category['category_name']);
             $obj_category->setSlug($item_category['slug']);
             
+            $obj_load_function = LoadFunction::getInstance();
+                
+            $obj_result_function = $obj_load_function->get_function_by_slug($this->function);
 
             include_once(ABSPATH .'/story/view/view-category.php');
         }

@@ -17,8 +17,8 @@
                     <span>Trang chủ</span>
                 </a>
                 <span> » </span>
-                
-                <span><?php echo ucfirst(strtolower($this->function));?></span>
+
+                <span><?php echo $obj_result_function['function_name'];?></span>
                 
             </div>
             

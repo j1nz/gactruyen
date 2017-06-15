@@ -1,33 +1,51 @@
-	Options All -Indexes
-	# prevent folder listing
-	# IndexIgnore *
+Options All -Indexes
+# prevent folder listing
+# IndexIgnore *
 
-    RewriteEngine On
+RewriteEngine On
 
-    RewriteBase /
-    
-    RewriteRule ^truyen$ story
+RewriteBase /
 
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteRule ^(.*)$ /handle.php?path=$1 [NC,L,QSA]
-    
-    # RewriteRule ^index.html$ index.php
-    # ForceType application/x-httpd-php
-    # AddType text/css .css
-    # AddType text/html .html
-    
-	# RewriteRule ^index\.php$ – [L]
-	# RewriteCond %{REQUEST_FILENAME} !-f
-    # RewriteCond %{REQUEST_FILENAME} !-d
-    # RewriteRule . index.php [L]
+# RewriteRule ^truyen$ story/
 
-	ErrorDocument 401 /401.php
-	ErrorDocument 403 /403.php
-	# ErrorDocument 404 /gactruyen/handle.php
-	ErrorDocument 500 /500.php
-    
-    # for all invalid links (non existing files):
-    # RewriteCond %{REQUEST_FILENAME} !-f
-    # RewriteCond %{REQUEST_FILENAME} !-d
-    # RewriteRule .* - [L,R=404]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /handle.php?path=$1 [NC,L,QSA]
+
+# RewriteRule ^index.html$ index.php
+# ForceType application/x-httpd-php
+# AddType text/css .css
+# AddType text/html .html
+
+# RewriteRule ^index\.php$ – [L]
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule . index.php [L]
+
+ErrorDocument 401 /401.php
+ErrorDocument 403 /403.php
+# ErrorDocument 404 /gactruyen/handle.php
+ErrorDocument 500 /500.php
+
+# for all invalid links (non existing files):
+# RewriteCond %{REQUEST_FILENAME} !-f
+# RewriteCond %{REQUEST_FILENAME} !-d
+# RewriteRule .* - [L,R=404]
+
+
+# Bảo vệ file file htaccess
+<files .htaccess>
+order allow,deny
+deny from all
+</files>
+
+# php compression – use with caution
+<ifmodule mod_php4.c>
+php_value zlib.output_compression 16386
+</ifmodule>
+
+# Tăt chữ ký sô của web server
+# disable the server signature
+ServerSignature Off
+# limit file uploads to 10mb
+LimitRequestBody 10240000

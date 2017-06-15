@@ -6,6 +6,7 @@
     require_once (ABSPATH .'/story/model/class-chapter.php');
 
 	class ChapterController extends BaseController {
+        private static $_instance;
         private $host;
         private $function;
         private $category;
@@ -24,9 +25,16 @@
         
         public function __construct() {
             ob_end_clean();
-           $this->obj_load_category = LoadCategory::getInstance();
-           $this->obj_load_story = LoadManga::getInstance();
-           $this->obj_load_chapter = LoadChapter::getInstance();
+            $this->obj_load_category = LoadCategory::getInstance();
+            $this->obj_load_story = LoadManga::getInstance();
+            $this->obj_load_chapter = LoadChapter::getInstance();
+        }
+        
+        public static function getInstance() {
+            if (!(self::$_instance instanceof self)) {
+                self::$_instance = new self();
+            }
+            return self::$_instance;
         }
         
         public function redirect() {

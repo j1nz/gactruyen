@@ -13,7 +13,7 @@
 	 * @access public
 	 */
 	class MangaController extends BaseController {
-	   private static $instance;
+	   private static $_instance;
        
        private $host;
        private $function;
@@ -32,6 +32,13 @@
            $this->obj_load_category = LoadCategory::getInstance();
            $this->obj_load_chapter = LoadChapter::getInstance();
            $this->loader = LoadManga::getInstance();
+        }
+        
+        public static function getInstance() {
+            if (!(self::$_instance instanceof self)) {
+                self::$_instance = new self();
+            }
+            return self::$_instance;
         }
 
         public function redirect_manga() {
@@ -64,34 +71,34 @@
                 if ($this->total_chapter == 1) {
                     self::view_content();
                 } else {
-                    
+                    self::load_manga($this->manga, $this->category);
                     // size > 4 it mean is user request story's chapter
-                    if ($size > 4) {
-                        $chapter = parent::get_param_url($permalinks[4]);
-                        if ($chapter != null || $chapter != '') {
-                            if ($chapter == 'index' || $chapter == 'index.html' || $chapter == 'index.php') {
-                                self::load_manga($this->manga, $this->category);
-                            } else {
-                                require_once (ABSPATH .'/story/controller/class-chapter-controller.php');
-                                
-                                $obj_chapter = new ChapterController();
-                                
-                                $obj_chapter->redirect($permalinks);
-                                /**
-                                 * @todo check slug chapter
-                                 * @todo load content with chapter
-                                 * 
-                                 * @since
-                                 * @version 1.0
-                                 */
-                            }
-                        } else {
-                            self::load_manga($this->manga, $this->category);
-                        }
-                    } else {
-                        self::load_manga($this->manga, $this->category); 
-                        
-                    }
+                    //if ($size > 4) {
+//                        $chapter = parent::get_param_url($permalinks[4]);
+//                        if ($chapter != null || $chapter != '') {
+//                            if ($chapter == 'index' || $chapter == 'index.html' || $chapter == 'index.php') {
+//                                self::load_manga($this->manga, $this->category);
+//                            } else {
+//                                require_once (ABSPATH .'/story/controller/class-chapter-controller.php');
+//                                
+//                                $obj_chapter = new ChapterController();
+//                                
+//                                $obj_chapter->redirect($permalinks);
+//                                /**
+//                                 * @todo check slug chapter
+//                                 * @todo load content with chapter
+//                                 * 
+//                                 * @since
+//                                 * @version 1.0
+//                                 */
+//                            }
+//                        } else {
+//                            self::load_manga($this->manga, $this->category);
+//                        }
+//                    } else {
+//                        self::load_manga($this->manga, $this->category); 
+//                        
+//                    }
                 }
                 
             } else {
@@ -128,7 +135,7 @@
         // 23h00 8-6-2017
         public function view_content() {
             $this->obj_category = new Category();
-            $obj_chapter = new ChapterController();
+            $obj_chapter = ChapterController::getInstance();
             $this->obj_chapter = new Chapter();
             
             $this->obj_chapter->setChapter_id($obj_chapter->get_chapter_id_by_chapter_slug($this->obj_story->getStory_id(), ''));
@@ -145,6 +152,7 @@
             $this->obj_story->setStory_name($result_story['story_name']);
             $this->obj_story->setCategory_id($result_story['category_id']);
             $this->obj_story->setAuthor($result_story['author']);
+            $this->obj_story->setCover($result_story['cover']);
             $this->obj_story->setOther_name($result_story['other_name']);
             $this->obj_story->setView($result_story['view']);
             $this->obj_story->setSlug($result_story['slug']);
@@ -161,10 +169,9 @@
             exit;
         }
         
+        // 23h00 8-6-2017
         public function view_manga() {
             //ob_end_flush();
-            
-            
             
             $this->obj_category = new Category();
            /**
@@ -187,8 +194,6 @@
              * @version 1.0
              */
             
-            
-            
             $result_story = $this->loader->get_story_by_id($this->obj_story->getStory_id());
             $this->obj_story->setStory_name($result_story['story_name']);
             $this->obj_story->setCategory_id($result_story['category_id']);
@@ -205,9 +210,7 @@
             $this->obj_category->setCategory_id($result_category['category_id']);
             $this->obj_category->setCategory_name($result_category['category_name']);
             $this->obj_category->setSlug($result_category['slug']);
-            
-            
-            
+
             // Lay danh sach chuong cua moi truyen
             $list_chapter = $this->obj_load_chapter->get_chapter_of_story($this->obj_story->getStory_id());
 

@@ -23,7 +23,10 @@
             
                 $this->_pdo->exec('set names utf8');
             } catch (PDOException $e) {
-                die('Could not connect to the database '.DB_NAME .' :' . $e->getMessage());
+                //header('HTTP/1.0 404 Not Found');
+                header($_SERVER['SERVER_PROTOCOL'] . ' 500 Internal Server Error', true, 500);
+                exit;
+                //die('Could not connect to the database '.DB_NAME .' :' . $e->getMessage());
             }
     
         }

@@ -11,7 +11,6 @@
     
     $permalinks = explode('/',$_SERVER['REQUEST_URI']);
 
-
     if (isset( $permalinks ) ) { 
         
         if (isset($permalinks[1] ) ) {

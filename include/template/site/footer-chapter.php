@@ -1,24 +1,24 @@
-<div class="widget">
+            <div class="widget">
 				<div class="title">
 					<span>Chia sẻ</span>
 				</div>
 				<div class="news">
 					<div class="share">
-	                	<a href="smsto:01222558948?body=Hay doc bai viet nay <xt:url>">
-	                    	<img src="http://gactruyen.mobie.in/images/icon/sms.png" alt="SMS" />
-	                	</a>
-	                  	<a title="Đăng lên Google" target="_blank" href="https://www.google.com.vn/bookmarks/mark?op=add&amp;bkmk=<xt:url>&amp;title=$name_bv&amp;annotation=">
-	                    	<img src="http://gactruyen.mobie.in/images/icon/gg.png" alt="Google" />
-	                	</a>
-	                  	<a target="_blank" href="http://link.apps.zing.vn/pro/view/conn/share?u=<xt:url>">
-	                    	<img src="http://gactruyen.mobie.in/images/icon/zm.png" alt="Zing" />
-	                	</a>
-	                  	<a href="http://facebook.com/sharer/sharer.php?u=<xt:url>" target="_blank">
-	                    	<img src="http://gactruyen.mobie.in/images/icon/fb.png" alt="Facebook" />
-	                	</a>
-	                	<a href="http://twitter.com/share?url=<xt:url>" target="_blank">
-	                    	<img src="http://gactruyen.mobie.in/images/icon/tt.png" alt="Twitter" />
-	                	</a>
+	                	<a href="smsto:01222558948?body=Hay doc bai viet nay <script>document.write(window.location.href);<script>">
+                            <img src="/upload/images/icon/sms.png" alt="SMS" />
+                        </a>
+                          <a title="Đăng lên Google" target="_blank" href="#">
+                            <img src="/upload/images/icon/gg.png" alt="Google" />
+                        </a>
+                          <a target="_blank" href="#">
+                            <img src="/upload/images/icon/zm.png" alt="Zing" />
+                        </a>
+                          <a href="#" target="_blank">
+                            <img src="/upload/images/icon/fb.png" alt="Facebook" />
+                        </a>
+                        <a href="#" target="_blank">
+                            <img src="/upload/images/icon/tt.png" alt="Twitter" />
+                        </a>
 	            	</div>
 					<div class="bbcode">
 						<span>URL</span>
@@ -26,48 +26,42 @@
 						<span>BBCode</span>
 						<textarea id="bbcode" cols="20" rows="2"></textarea>
 					</div>
-					
-	            	
 				</div>
-				
-			</div>
-			
+			</div>			
 		</div>
 
-      	////////////////////////
       <footer>
          <div class="container">
             
             <div class="footer" align="center">
-               
-            	<a href="/gioi-thieu.html" >
-               	<span class="footer_title">Giới thiệu</span>
-               	</a>
-
-                <span> | </span> 
-
-            	<a href="/dieu-khoan-su-dung.html" >
-                	<span class="footer_title">Điều khoản sử dụng</span>
+                <a href="/" >
+                    <span class="footer_title">Trang chủ</span>
                 </a>
-
+        
                 <span> | </span> 
 
+            	<a href="/gioi-thieu.html" >
+               	    <span class="footer_title">Giới thiệu</span>
+               	</a>
+        
+                <span> | </span> 
+        
                 <a href="/lien-he.html" >
                 	<span class="footer_title">Liên hệ</span>
                 </a>
-
+        
                 <div class="footer_copyright">
-                	<span>Copyright ©2014 by </span>
-
-               		<a rel="author" href="https://www.google.com/">
+                	<span>Copyright ©<?php echo date('Y')?> by </span>
+        
+               		<a rel="author" href="/">
                			<span>Gác Truyện™</span>
                		</a>
-
-					<div class="footer_took">
-						<span id="took">Took: 0.1 s</span>
-					</div>
+        
+        			<div class="footer_took">
+        				<span id="took">Took: 0.1 s</span>
+        			</div>
                 </div>
-               
+           
             </div>
          </div>
          <div class="container">
@@ -77,12 +71,6 @@
             </div>
          </div>
 
-		<div id="widget_quote_fixed">
-			<div class="title"><span>//////title quote fixed/////</span></div>
-			<div class="content"><span>//////simple is best/////</span></div>
-		</div>
-		
-
 		<div id="button_setting">
 			<!-- <i class="fa fa-cogs fa-3x" aria-hidden="true"></i> -->
 			<i class="fa fa-cog fa-3x" aria-hidden="true"></i>
@@ -90,14 +78,13 @@
 
          <!--back to top-->
         <div id="go_to_top">
-            
         	<i class="fa fa-chevron-circle-up fa-3x" aria-hidden="true"></i>
             
         </div>
         <!-- end back to top -->
 
         <!-- setting modal -->
-		<div class="setting-modal">
+		<div class="setting-modal" style="display: none;">
 			<span>Setting read mode</span>
 
 			<!-- button close setting modal -->
@@ -108,7 +95,6 @@
 
 				<!-- change font word -->
 				<div class="changeFontFamily">
-					
 					<span>Change font family</span>
 
 					<select onchange="fn_change_font()" id="changeFont" >
@@ -230,7 +216,6 @@
 	            $(window).scroll(function () {
 					var timeNow = new Date().getTime();
 					var positionScroll = $(this).scrollTop();
-
 
 					//chặn scroll liên tục
 				    if (timeNow - timeStamp < 500) {

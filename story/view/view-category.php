@@ -14,7 +14,7 @@
            	<div class="title">
 
                 <a href="<?php echo ('/' .$this->function .'/' );?>">
-                    <span><?php echo ucfirst(strtolower($this->function));?></span>
+                    <span><?php echo $obj_result_function['function_name'];?></span>
                 </a>
                 <span> » </span>
                 <span><?php echo $obj_category->getCategory_name();?></span>
