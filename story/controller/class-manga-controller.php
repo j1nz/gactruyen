@@ -7,8 +7,8 @@
 	 * MangaController
 	 * 
 	 * @package gactruyen
-	 * @author
-	 * @copyright 2017
+	 * @author j1nz
+	 * @copyright gactruyen.mobie.in
 	 * @version 1.1
 	 * @access public
 	 */
@@ -42,13 +42,7 @@
         }
 
         public function redirect_manga() {
-            //un-comment when use at localhost, if up to host don't need nesesary'
-            //cut the first index of array 
-            //array_shift($permalinks);
-            
-            // host at index 0
-            // functrion at index 1
-            // category at index 2
+            //get url request
             $permalinks = explode('/',$_SERVER['REQUEST_URI']);
             
             $this->host = $permalinks[0];
@@ -72,33 +66,6 @@
                     self::view_content();
                 } else {
                     self::load_manga($this->manga, $this->category);
-                    // size > 4 it mean is user request story's chapter
-                    //if ($size > 4) {
-//                        $chapter = parent::get_param_url($permalinks[4]);
-//                        if ($chapter != null || $chapter != '') {
-//                            if ($chapter == 'index' || $chapter == 'index.html' || $chapter == 'index.php') {
-//                                self::load_manga($this->manga, $this->category);
-//                            } else {
-//                                require_once (ABSPATH .'/story/controller/class-chapter-controller.php');
-//                                
-//                                $obj_chapter = new ChapterController();
-//                                
-//                                $obj_chapter->redirect($permalinks);
-//                                /**
-//                                 * @todo check slug chapter
-//                                 * @todo load content with chapter
-//                                 * 
-//                                 * @since
-//                                 * @version 1.0
-//                                 */
-//                            }
-//                        } else {
-//                            self::load_manga($this->manga, $this->category);
-//                        }
-//                    } else {
-//                        self::load_manga($this->manga, $this->category); 
-//                        
-//                    }
                 }
                 
             } else {
@@ -165,7 +132,7 @@
             $this->obj_category->setSlug($result_category['slug']);
             
             //echo 'content here';
-            include_once (ABSPATH .'/story/view/view-only-content.php');
+            include_once (ABSPATH ._STORY_DIR ._VIEW_DIR .'/view-only-content.php');
             exit;
         }
         
@@ -216,7 +183,7 @@
 
             //ob_end_clean();
             //ob_get_clean();
-            include_once (ABSPATH .'/story/view/view-manga.php');
+            include_once (ABSPATH ._STORY_DIR ._VIEW_DIR .'/view-manga.php');
             exit;
         }
 	}

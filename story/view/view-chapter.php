@@ -1,14 +1,14 @@
 <?php
-    require_once( dirname(dirname(dirname(__FILE__))) . '/load.php' );
+    //require_once( dirname(dirname(dirname(__FILE__))) . '/load.php' );
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<?php include_once(ABSPATH .'/include/template/site/header.php'); ?>
+	<?php include_once(ABSPATH ._HEADER_FILE); ?>
     <link rel="stylesheet" href="/include/css/css-manga.css" />
 </head>
 <body>
-	<?php include_once(ABSPATH .'/include/template/site/menu-bar.php'); ?>
+	<?php include_once(ABSPATH ._MENU_BAR_FILE); ?>
     <div class="container">
         <div class="widget">
             <div class="title">
@@ -108,6 +108,6 @@
         </div>
     
     </div>
-    <?php include_once(ABSPATH .'/include/template/site/footer-chapter.php'); ?>
+    <?php include_once(ABSPATH ._FOOTER_CHAPTER_FILE); ?>
 </body>
 </html>

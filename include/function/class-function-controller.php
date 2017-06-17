@@ -4,8 +4,19 @@
     require_once(ABSPATH .'/include/function/loader/class_load_function.php');
     require_once(ABSPATH .'/story/controller/class-chapter-controller.php');
     require_once(ABSPATH .'/story/model/class-uri-story.php');
-    
+
+    /**
+     * FunctionController
+     * 
+     * @package gactruyen  
+     * @author j1nz
+     * @copyright 2017
+     * @version 1.3
+     * @access public
+     */
     class FunctionController extends BaseController {
+        private static $_instance;
+        
         private $host;
         private $function;
         private $category;
@@ -17,6 +28,13 @@
         
         private $obj_uri_model;
         private $obj_story_controller;
+        
+        public static function getInstance() {
+            if (!(self::$_instance instanceof self)) {
+                self::$_instance = new self();
+            }
+            return self::$_instance;
+        }
         
         public function __construct() {
             $this->obj_uri_model = UriStoryModel::getInstance();
@@ -35,6 +53,7 @@
                     $this->obj_story_controller->redirect_story($this->obj_uri_model);
                     exit;
                 } else {
+                    // size > 4 it mean is user request story's chapter
                     if ($this->size > 4) {
                         self::process_chapter_link($permalinks);
                         exit;
@@ -53,13 +72,16 @@
         private function process_chapter_link($permalinks) {
             $check_story_or_chapter = parent::get_param_url($permalinks[4]);
             
-            // Tru?c d?u '?' có ký t? nào không n?u có (khác null) thì vào if
+            // before character '?' have the any character, if exist (different null) then go to if logic
             if ($check_story_or_chapter != null) {
                 if ($check_story_or_chapter == 'index' || $check_story_or_chapter == 'index.php'){
                     self::load_manga();
                     exit;
                 } else {
-                    
+                    /**
+                     * @todo process if over 5 in permalinks
+                     * @since 2017-06-17
+                     */
                     self::load_chapter();
                     exit;
                 }
@@ -69,16 +91,25 @@
             }
         }
         
+        // redirect to class process story
         public function load_manga() {
             $load_manga = MangaController::getInstance();
             $load_manga->redirect_manga();
         }
         
+        // redirect to class process load chapter of story
         public function load_chapter() {
             $load_chapter = ChapterController::getInstance();
             $load_chapter->redirect();
         }
         
+        /**
+         * Process fuction of website
+         * host/{function}/{....}/....
+         * @param $permalinks (get from -> url request)
+         * @since 2017-06-10
+         * @version 1.3
+         */
         public function redirect_function($permalinks) {
 
             //cut the first index of array 
@@ -136,6 +167,7 @@
                         break;
                         
                     default :
+                        // not found {function}
                         parent::load_404();
                         break;
                 } //end switch

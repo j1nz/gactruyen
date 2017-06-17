@@ -1,31 +1,34 @@
 <?php
-    require_once( '/load.php' );
-    
-    //echo 'HTTP_HOST: '. $_SERVER['HTTP_HOST'].'<br>';
-    //echo 'PHP_SELF: '.$_SERVER['PHP_SELF'].'<br>';
-    //echo 'DOCUMENT_ROOT: '. $_SERVER['DOCUMENT_ROOT'].'<br>';
-    //echo 'HTTP_USER_AGENT: '.$_SERVER['HTTP_USER_AGENT'] .'<br>'; 
-    //echo 'HTTP_REFERER: '. $_SERVER['HTTP_REFERER'].'<br>';
-    //echo 'REMOTE_ADDR: '. $_SERVER['REMOTE_ADDR'].'<br>';
-    //echo 'SCRIPT_FILENAME: '. $_SERVER['SCRIPT_FILENAME'] .'<br>';
-    
+    /**
+     * Handle url request (making url friendly)
+     * Config forward at .htaccess
+     * When server not found file or directory on project, server will forward all request to handle.php
+     * 
+     * @author j1nz
+     * @since 2017-05-20
+     * @version 1.1
+     */
+
+    if ( file_exists('config.php' ) ) {
+		require ( '/config.php' );
+	} else {
+	   exit;
+	}
+
+    // Get current link
     $permalinks = explode('/',$_SERVER['REQUEST_URI']);
 
-    if (isset( $permalinks ) ) { 
-        
+    if (isset( $permalinks ) ) {         
         if (isset($permalinks[1] ) ) {
-            require_once(ABSPATH .'/include/function/class-function-controller.php');
+            require_once(ABSPATH ._INCLUDE_DIR ._FUNCTION_DIR .'/class-function-controller.php');
         
-    		$func = new FunctionController();
+    		$func = FunctionController::getInstance();
             $func->redirect_function($permalinks);
         } else {
-            require(ABSPATH .'/include/function/class-base-controller.php');
+            require(ABSPATH ._INCLUDE_DIR ._FUNCTION_DIR .'/class-base-controller.php');
             
-            $base = new BaseController();
+            $base = BaseController::getInstance();
             $base->load_404();
         }
-        
-
-    }
-          
+    } 
 ?>

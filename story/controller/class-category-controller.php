@@ -1,10 +1,11 @@
 <?php
-    require_once(ABSPATH .'/include/function/loader/class-load-category.php');
-    require_once(ABSPATH .'/include/function/loader/class-load-manga.php');
-    require_once(ABSPATH .'/story/model/class-category.php');
+    require_once(ABSPATH ._INCLUDE_DIR ._FUNCTION_DIR .'/loader/class-load-category.php');
+    require_once(ABSPATH ._INCLUDE_DIR ._FUNCTION_DIR .'/loader/class-load-manga.php');
+    require_once(ABSPATH ._STORY_DIR ._MODEL_DIR .'/class-category.php');
     
 	class CategoryController {
         protected static $_instance;
+        
         protected $host;
         protected $function;
         protected $category_name;
@@ -129,7 +130,7 @@
                 
             $obj_result_function = $obj_load_function->get_function_by_slug($this->function);
 
-            include_once(ABSPATH .'/story/view/view-category.php');
+            include_once(ABSPATH ._STORY_DIR ._VIEW_DIR .'/view-category.php');
         }
 
 	}

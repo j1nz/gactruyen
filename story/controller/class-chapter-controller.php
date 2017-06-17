@@ -58,7 +58,7 @@
                 $this->obj_chapter->setChapter_id(self::get_chapter_id_by_chapter_slug($this->obj_story->getStory_id(), $this->chapter));
                 
                 self::view_chapter();
-                
+                exit;
             } else {
                 parent::load_404();
                 
@@ -147,8 +147,7 @@
             $this->obj_category->setCategory_name($result_category['category_name']);
             $this->obj_category->setSlug($result_category['slug']);
             
-            header('HTTP/1.0 200 OK');
-            include_once (ABSPATH .'/story/view/view-chapter.php');
+            include_once (ABSPATH ._STORY_DIR ._VIEW_DIR .'/view-chapter.php');
             
         }
 	}

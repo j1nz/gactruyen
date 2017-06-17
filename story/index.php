@@ -1,5 +1,12 @@
 <?php
-    require_once( dirname(dirname(__FILE__)) . '/load.php' );
+    //require_once( dirname(dirname(__FILE__)) . '/load.php' );
+    if ( file_exists(dirname(dirname(__FILE__)) . '/config.php' ) ) {
+		require (dirname(dirname(__FILE__)) . '/config.php' );
+        
+	} else {
+	   exit;
+	}
+    
 
     //echo 'HTTP_HOST: '. $_SERVER['HTTP_HOST'].'<br>';
 //    echo 'PHP_SELF: '.$_SERVER['PHP_SELF'].'<br>';
@@ -15,7 +22,7 @@
 	{  
         require_once(ABSPATH .'/include/function/class-function-controller.php');
         
-		$func = new FunctionController();
+		$func = FunctionController::getInstance();
         $func->redirect_function($permalinks);
     }
           

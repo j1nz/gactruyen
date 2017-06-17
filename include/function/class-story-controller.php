@@ -112,7 +112,7 @@
             
             $list_category = $this->loader->get_category_all();
             
-            include_once(ABSPATH .'/story/story.php');
+            include_once(ABSPATH ._STORY_DIR .'/story.php');
 
         }
         

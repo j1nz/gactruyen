@@ -5,10 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<?php include_once(ABSPATH .'/include/template/site/header.php'); ?>
+	<?php include_once(ABSPATH ._HEADER_FILE); ?>
 </head>
 <body>
-	<?php include_once(ABSPATH .'/include/template/site/menu-bar.php'); ?>
+	<?php include_once(ABSPATH ._MENU_BAR_FILE); ?>
 	
     <div class="container">
         <div class="widget">
@@ -45,6 +45,6 @@
     
     </div>
     
-	<?php include_once(ABSPATH .'/include/template/site/footer.php'); ?>
+	<?php include_once(ABSPATH ._FOOTER_FILE); ?>
 </body>
 </html>
