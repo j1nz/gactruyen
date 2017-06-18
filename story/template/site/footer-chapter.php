@@ -153,7 +153,7 @@
 
 			
 		</div>
-        <script src="/include/js/jquery-2.2.2.js"></script>
+        <script src="/include/js/jquery-3.2.1.js"></script>
         <script src="/include/js/myjs-time-took.js"></script>
 
         <script type="text/javascript">

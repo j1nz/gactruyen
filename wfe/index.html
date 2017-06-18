@@ -292,14 +292,24 @@
 
 			
 		</div>
-
-        <script src="js/jquery-2.2.2.js"></script>
-        <script src="js/jscolor.js"></script>
-        <script src="js/change_font_size.js"></script>
-        <script src="js/jquery.mousewheel.js"></script>
+		<script src="js/jquery-2.2..js"></script>
+        <script src="js/myjs-require-jquery.js"></script>
+        
         <!-- <script type="text/javascript" src="js/jquery.fontselector.js"></script> -->
 
         <script type="text/javascript">
+        	if (typeof jQuery === 'undefined') {
+				throw new Error('My project use Jquery framework of JavaScript and it requires jQuery')
+			}
+			var settingRM = new SettingReadMode('Arial', '12px', '222', 'fff');
+			settingRM.saveToSessionStorage();
+			settingRM.saveToLocalStorage();
+			var resultLocal = settingRM.getFromLocalStorage();
+
+			for (var i = resultLocal.length - 1; i >= 0; i--) {
+				console.log(resultLocal[i]);
+			}
+
 			var link = window.location.href;
         	var title = window.document.title;
         	var took = 0.01;

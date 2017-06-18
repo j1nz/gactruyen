@@ -92,7 +92,7 @@
             </div> -->
          </div>
 
-        <script src="/include/js/jquery-2.2.2.js"></script>
+        <script src="/include/js/jquery-3.2.1.js"></script>
         <script src="/include/js/jscolor.js"></script>
         <script src="/include/js/change_font_size.js"></script>
         <script src="/include/js/view_manga.js"></script>
