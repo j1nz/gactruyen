@@ -2,6 +2,9 @@
 
 }
 
+.note {
+  text-align: center;
+}
 
 .img-cover {
 	text-align: center;
@@ -195,7 +198,8 @@
     word-wrap: break-word!important;
     font-weight: 100;
     line-height: 2em;
-  margin-top: 15px;
+    margin-top: 15px;
+    text-align: justify;
 }
 
 .chapter-end {
@@ -204,4 +208,9 @@
     text-decoration: underline;
     color: blueviolet;
     font-size: 15px;
+}
+
+.btn-center {
+  float: right;
+  margin-top: 5px;
 }

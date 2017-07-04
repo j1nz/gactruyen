@@ -31,13 +31,11 @@
 		</div>
 
       <footer>
-         <div class="container">
-            
+         <div class="widget">
             <div class="footer" align="center">
                 <a href="/" >
                     <span class="footer_title">Trang chủ</span>
                 </a>
-        
                 <span> | </span> 
 
             	<a href="/gioi-thieu.html" >
@@ -64,16 +62,15 @@
            
             </div>
          </div>
-         <div class="container">
-            <div class="new" style color="red" atl="lien ket">
-               <b>Liên kết wap:
-               </b> <a href="http://www.zumbo.mobie.in" atl="wap tai game">Wap game</a>
-            </div>
-         </div>
+        <div class="new" style color="red" atl="lien ket">
+			<b>Liên kết wap:
+			</b> <a href="http://www.zumbo.mobie.in" atl="wap tai game">Wap game</a>
+        </div>
 
 		<div id="button_setting">
 			<!-- <i class="fa fa-cogs fa-3x" aria-hidden="true"></i> -->
-			<i class="fa fa-cog fa-3x" aria-hidden="true"></i>
+			<i class="fa fa-cog fa-3x" aria-hidden="true" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
+			
 		</div>
 
          <!--back to top-->
@@ -83,87 +80,128 @@
         </div>
         <!-- end back to top -->
 
+        <!-- Small modal -->
+
+		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+		  <div class="modal-dialog modal-sm" role="document">
+		    <div class="modal-content">
+		    	<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="gridSystemModalLabel">Setting Mode</h4>
+			    </div>
+			    <div class="modal-body">
+				    <div class="note">
+				    	This is text will change if you change style
+				    </div>
+
+				    <div class="form-group">
+						<label for="changeFont">Change font family</label>
+
+						<select class="form-control" onchange="fn_change_font()" id="changeFont" >
+							<option value="Arial,Arial,Helvetica,sans-serif">Arial</option>
+							<option value="Arial Black,Arial Black,Gadget,sans-serif">Arial Black</option>
+							<option value="Comic Sans MS,Comic Sans MS,cursive">Comic Sans MS</option>
+							<option value="Courier New,Courier New,Courier,monospace">Courier New</option>
+							<option value="Georgia,Georgia,serif">Georgia</option>
+							<option value="Impact,Charcoal,sans-serif">Impact</option>
+							<option value="Lucida Console,Monaco,monospace">Lucida Console</option>
+							<option value="Lucida Sans Unicode,Lucida Grande,sans-serif">Lucida Sans Unicode</option>
+							<option value="Palatino Linotype,Book Antiqua,Palatino,serif">Palatino Linotype</option>
+							<option value="Tahoma,Geneva,sans-serif">Tahoma</option>
+							<option value="Times New Roman,Times,serif">Times New Roman</option>
+							<option value="Trebuchet MS,Helvetica,sans-serif">Trebuchet MS</option>
+							<option value="Verdana,Geneva,sans-serif">Verdana</option>
+							<option value="Gill Sans,Geneva,sans-serif">Gill Sans</option>
+						</select>
+					</div>
+			    	<!-- change font size -->
+					<div class="form-group">
+						<label for="changeSize">Change font size</label>
+						
+						<select class="form-control" onchange="fn_change_size()" id="changeSize" >
+							<option value="9px">9px</option>
+							<option value="10px">10px</option>
+							<option value="11px">11px</option>
+							<option value="12px">12px</option>
+							<option value="13px">13px</option>
+							<option value="14px">14px</option>
+							<option value="15px">15px</option>
+							<option value="16px">16px</option>
+						</select>
+
+						<!-- <button class="btn btn-default" id='resetSize' type="button">Default</button> -->
+					</div>
+					<!-- change font size -->
+
+					<!-- change background color -->
+					<div class="form-group">
+						<label for="jscolor-back-color">Background color</label>
+						<input class="form-control jscolor" id="jscolor-back-color" onchange="change_bg_color(this.jscolor)" value="#222222" />
+						<!-- <button class="btn btn-default" id='resetBackground'>Default</button> -->
+					</div>
+					
+
+					<!-- change color word -->
+					<div class="form-group" >
+						<label for="jscolor-fore-color">Foreground color</label>
+						<input class="form-control jscolor" id="jscolor-fore-color" onchange="change_fg_color(this.jscolor)" value="#ffffff" />
+						<!-- <button class="btn btn-default" id='resetForeground'>Default</button> -->
+					</div>
+					<div class="btn-center">
+						<button type="button" class="btn btn-default" id='reset_style'>Reset</button>
+						<button type="button" class="btn btn-primary" id='save_to_local'>Save</button>
+					</div>
+					
+			    </div>
+		    </div>
+		  </div>
+		</div>
         <!-- setting modal -->
-		<div class="setting-modal" style="display: none;">
+		<!-- <div class="setting-modal" style="display: none;">
 			<span>Setting read mode</span>
 
-			<!-- button close setting modal -->
 			<div id="close-modal"><span>close</span></div>
 
-			<!-- setting mode -->
+
 			<div class="setting-read">
-
-				<!-- change font word -->
-				<div class="changeFontFamily">
-					<span>Change font family</span>
-
-					<select onchange="fn_change_font()" id="changeFont" >
-						<option value="Arial,Arial,Helvetica,sans-serif">Arial</option>
-						<option value="Arial Black,Arial Black,Gadget,sans-serif">Arial Black</option>
-						<option value="Comic Sans MS,Comic Sans MS,cursive">Comic Sans MS</option>
-						<option value="Courier New,Courier New,Courier,monospace">Courier New</option>
-						<option value="Georgia,Georgia,serif">Georgia</option>
-						<option value="Impact,Charcoal,sans-serif">Impact</option>
-						<option value="Lucida Console,Monaco,monospace">Lucida Console</option>
-						<option value="Lucida Sans Unicode,Lucida Grande,sans-serif">Lucida Sans Unicode</option>
-						<option value="Palatino Linotype,Book Antiqua,Palatino,serif">Palatino Linotype</option>
-						<option value="Tahoma,Geneva,sans-serif">Tahoma</option>
-						<option value="Times New Roman,Times,serif">Times New Roman</option>
-						<option value="Trebuchet MS,Helvetica,sans-serif">Trebuchet MS</option>
-						<option value="Verdana,Geneva,sans-serif">Verdana</option>
-						<option value="Gill Sans,Geneva,sans-serif">Gill Sans</option>
-					</select>
-				</div>
-
-				<!-- end change font word -->
-
-				<!-- change font size -->
-				<div class="changeFontSize">
-					<span>Change font size</span>
-					
-					<select onchange="fn_change_size()" id="changeSize" >
-						<option value="9px">9px</option>
-						<option value="10px">10px</option>
-						<option value="11px">11px</option>
-						<option value="12px">12px</option>
-						<option value="13px">13px</option>
-						<option value="14px">14px</option>
-						<option value="15px">15px</option>
-						<option value="16px">16px</option>
-					</select>
-
-					<p id='resetSize'>reset</p>
-				</div>
-				<!-- change font size -->
-
-				<!-- change background color -->
-				<div class="changeBackground" >
-					<span>Background color</span>
-					<input class="jscolor" id="jscolor-back-color" onchange="change_color_background(this.jscolor)" value="" />
-					<p id='resetBackground'>reset</p>
-				</div>
-
-				<!-- change color word -->
-				<div class="changeForeground" >
-					<span>Foreground color</span>
-					<input class="jscolor" id="jscolor-fore-color" onchange="change_color_foreground(this.jscolor)" value="" />
-					<p id='resetForeground'>reset</p>
-				</div>
+				
 			</div>
 
 			
-		</div>
+		</div> -->
         <script src="/include/js/jquery-3.2.1.js"></script>
         <script src="/include/js/myjs-time-took.js"></script>
+        <script src="/wfe/js/myjs-save-local-storage.js"></script>
 
         <script type="text/javascript">
 			var link = window.location.href;
         	var title = window.document.title;
 
+        	$('#reset_style').click(function() {
+
+        	});
+
+        	$('#save_to_local').click(function() {
+        		var font_family = $('#changeFont').val();
+        		var font_size = $('#changeSize').val();
+        		var fg_color = $('#jscolor-fore-color').val();
+        		var bg_color = $('#jscolor-back-color').val();
+
+        		console.log(font_family);
+        		console.log(font_size);
+        		console.log(bg_color);
+        		console.log(fg_color);
+
+        		var obj_save_storage = new SettingReadMode(font_family, font_size, fg_color, bg_color);
+        		obj_save_storage.saveToLocalStorage();
+        	});
+
 			function fn_change_font(){
 				var new_font = $('#changeFont').val();
 
-				FontFamily.changeFont(new_font, 'content_story');
+				FontFamily.changeFont(new_font, '.note');
+
+				FontFamily.changeFont(new_font, '#content_story');
 			}
 
         	function getScrollBody() {
@@ -173,15 +211,15 @@
         	}
 			
 
-			function change_color_background(jscolor) {
-			    // 'jscolor' instance can be used as a string
-			    document.getElementById('content_story').style.backgroundColor = '#' + jscolor;
-			}
+        	function change_bg_color(jscolor) {
+        		document.getElementById('content_story').style.backgroundColor = '#' +jscolor;
+        		$('.note').css('backgroundColor', '#' +jscolor);
+        	}
 
-			function change_color_foreground(jscolor) {
-			    // 'jscolor' instance can be used as a string
-			    document.getElementById('content_story').style.color = '#' + jscolor;
-			}
+        	function change_fg_color(jscolor) {
+        		document.getElementById('content_story').style.color = '#' +jscolor;
+        		$('.note').css('color', '#' +jscolor);
+        	}
 
 			function hide_setting() {
 				$('#button_setting').fadeOut("slow");
@@ -206,6 +244,26 @@
 			
 
             $(function() {
+            	if(typeof(Storage) !== 'undefined') {
+            		var variable = [];
+					variable[0] = localStorage.getItem('font_family');
+			    	variable[1] = localStorage.getItem('font_size');
+			    	variable[2] = localStorage.getItem('color_foreground');
+			    	variable[3] = localStorage.getItem('color_backgroud');
+
+            		if (variable != null) {
+            			FontFamily.changeFont(variable[0], 'content_story');
+            			$('#content_story').css({'fontSize' : variable[1]});
+            			change_bg_color(variable[3]);
+            			change_fg_color(variable[2]);
+
+            			$('#changeFont').val(variable[0]);
+		        		$('#changeSize').val(variable[1]);
+		        		$('#jscolor-fore-color').val(variable[2]);
+		        		$('#jscolor-back-color').val(variable[3]);
+            		}
+            	}
+
                 $('.setting-modal').hide();
             	$('#widget_quote_fixed').hide();
               	$('#url').text(link);
@@ -226,7 +284,6 @@
 					}
 
 	                if ($(this).scrollTop() > 50) {
-
 	                	if (positionScroll < iScrollPos) {
 						    // Hành động scroll lên
 						    $('#button_setting').fadeIn();
@@ -279,6 +336,6 @@
         <script src="/include/js/jscolor.js"></script>
         <script src="/include/js/change_font_size.js"></script>
         <script src="/include/js/view_manga.js"></script>
-        
         <script src="/include/js/myjs-change-font-family.js"></script>
-      </footer>
+        <script src="/include/js/bootstrap.js"></script>
+    </footer>

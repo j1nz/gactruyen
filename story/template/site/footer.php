@@ -26,47 +26,45 @@
                     <span>BBCode</span>
                     <textarea id="bbcode" cols="20" rows="2"></textarea>
                 </div>
+                
             </div>
         </div>
         <footer>
-            <div class="container">
                     
-                <div class="footer" align="center">
-                    <a href="/" >
-                        <span class="footer_title">Trang chủ</span>
-                    </a>
-            
-                    <span> | </span> 
+            <div class="footer" align="center">
+                <a href="/" >
+                    <span class="footer_title">Trang chủ</span>
+                </a>
+        
+                <span> | </span> 
 
-                	<a href="/gioi-thieu.html" >
-                   	    <span class="footer_title">Giới thiệu</span>
-                   	</a>
-            
-                    <span> | </span> 
-            
-                    <a href="/lien-he.html" >
-                    	<span class="footer_title">Liên hệ</span>
-                    </a>
-            
-                    <div class="footer_copyright">
-                    	<span>Copyright ©<?php echo date('Y')?> by </span>
-            
-                   		<a rel="author" href="/">
-                   			<span>Gác Truyện™</span>
-                   		</a>
-            
-            			<div class="footer_took">
-            				<span id="took">Took: 0.1 s</span>
-            			</div>
-                    </div>
-               
+            	<a href="/gioi-thieu.html" >
+               	    <span class="footer_title">Giới thiệu</span>
+               	</a>
+        
+                <span> | </span> 
+        
+                <a href="/lien-he.html" >
+                	<span class="footer_title">Liên hệ</span>
+                </a>
+        
+                <div class="footer_copyright">
+                	<span>Copyright ©<?php echo date('Y')?> by </span>
+        
+               		<a rel="author" href="/">
+               			<span>Gác Truyện™</span>
+               		</a>
+        
+        			<div class="footer_took">
+        				<span id="took">Took: 0.1 s</span>
+        			</div>
                 </div>
+           
             </div>
-            <div class="container">
-                <div class="new" style color="red" alt="lien ket">
-                    <b>Liên kết wap:</b>
-                    <a href="#" alt="wap tai game">Wap game</a>
-                </div>
+
+            <div class="new" style color="red" alt="lien ket">
+                <b>Liên kết wap:</b>
+                <a href="#" alt="wap tai game">Wap game</a>
             </div>
         
             <div id="widget_quote_fixed">

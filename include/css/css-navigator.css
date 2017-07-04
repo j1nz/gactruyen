@@ -1,0 +1,25 @@
+/*----Bar Menu------*/
+.navbar-menu{
+    background:#E74946;
+    text-transform: uppercase;
+    font-size: 14px;
+    color: #fff;
+    font: 13px Tahoma, Arial, Helvetica, sans-serif;
+}
+.navbar-menu span.item {
+    display:inline-block;font-size:14px;color:#fff;padding:4px
+}
+.navbar-menu .selected {
+    background:#C83C39
+}
+.navbar-menu span.item:hover {
+    background:#C83C39
+}
+
+
+.mainstory, .mainsub {
+    border:1px solid #cecece;
+    margin:0 0 1px 0;
+    background: #fff;
+    font-size: 13px;
+}

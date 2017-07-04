@@ -16,8 +16,9 @@
     <link rel="alternate" media="handheld" href="<?php echo $actual_link?>" />
     <link rel="canonical" href="<?php echo $actual_link?>" />
     <link rel="shortcut icon" href="/upload/images/icon/bieu-tuong-wap.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="/include/css/bootstrap.css" />
     <link rel="stylesheet" href="/include/css/css-filelist.css" />
     <link rel="stylesheet" href="/include/css/css-public.css" />
     <link rel="stylesheet" href="/include/css/css-modal-setting.css" />
     <link rel="stylesheet" href="/include/css/font-awesome.css" />
-
+    <link rel="stylesheet" href="/include/css/css-navigator.css" />

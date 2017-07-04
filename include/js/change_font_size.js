@@ -17,6 +17,8 @@ var elm = $('#content_story');
 function fn_change_size() {
 
 	var new_size = $('#changeSize').val();
+	
+	$('.note').css({'fontSize' : new_size});
 
 	elm.css({'fontSize' : new_size});
 	//return false;

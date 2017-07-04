@@ -22,7 +22,7 @@ var FontFamily = new function() {
 
 		//document.getElementById(this.element).style.font-family(this.new_font);
 
-		$('#' +this.element).css({'font-family' : this.new_font});
+		$(this.element).css({'font-family' : this.new_font});
 	};
 
 	this.resetFont = function(old_font, element) {

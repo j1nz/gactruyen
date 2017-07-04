@@ -3,13 +3,13 @@
 
 
 ?>
-        <div class="container">
+        <div class="widget">
         	<a href="/">
                 <div class="header" align="center">
                    <img src="/upload/images/logo/gactruyen.mobie.in.png" alt="Wap đọc truyện, sách hay miễn phí cập nhập mỗi ngày"/>
                 </div>
             </a>
-            <div class="navbar">
+            <div class="navbar-menu">
             	<a title="Thế giới giải trí, đọc truyện hay miễn phí, sách hay cho bạn" href="/">
                     <span class="item selected">
                     <b><img src="/upload/images/icon/home.png" alt="HOME"/>HOME</b>
@@ -48,3 +48,4 @@
                 </div>
             </div>
         </div>
+
