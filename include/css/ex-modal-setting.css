@@ -1,14 +1,18 @@
 /*----- Class setting modal ------ */
 #button_setting {
-    bottom: 20px;
+    bottom: 70px;
     /*cursor: pointer;*/
     color: #165bde;
     display: none;
     height: 35px;
     position: fixed;
-    left: 10px;
+    left: 20px;
     width: 44px;
     z-index: 999;
+}
+
+.edit-style {
+    margin-top: 12px;
 }
 
 .setting-modal {

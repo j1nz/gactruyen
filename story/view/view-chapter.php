@@ -5,20 +5,26 @@
 <html>
 <head>
 	<?php include_once(ABSPATH ._HEADER_FILE); ?>
-    <link rel="stylesheet" href="/include/css/css-manga.css" />
+    <link rel="stylesheet" href="/include/css/ex-manga.css" />
+    
 </head>
 <body>
 	<?php include_once(ABSPATH ._MENU_BAR_FILE); ?>
+
+    
+
     <div class="widget">
         <div class="title">
-            <a href="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug();?>">
+            <a id="a-story" href="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug();?>">
                 <span><?php echo $this->obj_story->getStory_name();?></span>
             </a>
             <span> » </span>
 
-            <span><?php echo 'Chương ' .$page_current; ?></span>
+            <span id="chapter_no"><?php echo 'Chương ' .$page_current; ?></span>
 
         </div>
+        
+        
         <div class="content">
             <div class="container-field">
 	    		
@@ -54,41 +60,52 @@
 
                 <div class="chapter-pager">
                 	<div class="pager">
-                		<a href="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug() .'/' .$page_previous .'/'; ?>" title="">Chương trước</a>
+                		<a class="a-prev" href="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug() .'/' .$page_previous .'/'; ?>" title="">Chương trước</a>
                 	</div>
                 
                 	<div class="pager">
-                		<a href="#" id="table_content" title="">Mục lục</a>
+                		<span class="table_content" title="Mục lục <?php echo $this->obj_story->getStory_name();?>">Mục lục</span>
                 	</div>
                 
                 	<div class="pager">
-                		<a href="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug() .'/' .$page_next .'/'; ?>" title="">Chương sau</a>
+                		<a class="a-next" href="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug() .'/' .$page_next .'/'; ?>" title="">Chương sau</a>
                 	</div>
                 </div>
                 
-                <div class="chapter-title">
-                	<span><?php echo $this->obj_chapter->getChapter_number() .': ' .$this->obj_chapter->getChapter_name();?></span>
+                
+                
+                <div class="view-content" id='content_story'>
+                    <?php
+                        if ($this->obj_chapter->getContent() == '') {
+                            echo '<div class="sc_focus">N?i dung c?a chuong dang du?c c?p nh?p, vui lòng quai l?i sau ^^</div>';
+                        } else {
+                            echo '<div class="chapter-title">';
+                                	echo '<span>';
+                                        echo $__result_chapter['chapter_number'] .' ' .$__result_chapter['chapter_name'];
+                                    echo '</span>';
+                            echo '</div>';
+                            echo '<div class="content-story">';
+                                echo $this->obj_chapter->getContent();
+                            echo '</div>';
+                            echo '<div class="chapter-end" ><span>o O o</span></div>';
+                        }
+                     
+                    ?>
                 </div>
                 
-                <div class="content-story" id='content_story'>
-                    <?php echo $this->obj_chapter->getContent(); ?>
-                </div>
                 
-                <div class="chapter-end" >
-                    <span>End chapter <?php echo $page_current; ?></span>
-                </div>
                 
                 <div class="chapter-pager">
                 	<div class="pager">
-                		<a href="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug() .'/' .$page_previous .'/'; ?>" title="">Chương trước</a>
+                		<a class="a-prev" href="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug() .'/' .$page_previous .'/'; ?>" title="">Chương trước</a>
                 	</div>
                 
                 	<div class="pager">
-                		<a href="#" id="table_content" title="">Mục lục</a>
+                		<span class="table_content" title="Mục lục <?php echo $this->obj_story->getStory_name();?>">Mục lục</span>
                 	</div>
                 
                 	<div class="pager">
-                		<a href="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug() .'/' .$page_next .'/'; ?>" title="">Chương sau</a>
+                		<a class="a-next"  href="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug() .'/' .$page_next .'/'; ?>" title="">Chương sau</a>
                 	</div>
                 </div>
 
@@ -107,6 +124,21 @@
 	    	</div>
         </div>
     </div>
+
+    
+    <div class="hidden-area" style="display: none;">
+        <input type="hidden" name="commonSlug" id="commonSlug" 
+            value="<?php echo '/' .$this->function .'/' .$this->obj_category->getSlug() .'/' .$this->obj_story->getSlug() .'/chap-' .$page_current;?>">
+
+        <input type="hidden" name="storyId" id="storyId" value="<?php echo $this->obj_story->getStory_id() ?>" />
+        <input type="hidden" name="chapterId" id="chapterId" value="<?php echo $this->obj_chapter->getChapter_id() ?>" />
+        <input type="hidden" name="functionSlug" id="functionSlug" value="<?php echo $this->function ?>" />
+        <input type="hidden" name="categorySlug" id="categorySlug" value="<?php echo $this->obj_category->getSlug() ?>" />
+        <input type="hidden" name="storySlug" id="storySlug" value="<?php echo $this->obj_story->getSlug() ?>" />
+        <input type="hidden" name="totalChapter" id="totalChapter" value="<?php echo $this->total_chapter ?> "/>
+        <input type="hidden" name="chapterCurrent" id="chapterCurrent" value="<?php echo $page_current ?> "/>
+    </div>
+
     <?php include_once(ABSPATH ._FOOTER_CHAPTER_FILE); ?>
 </body>
 </html>

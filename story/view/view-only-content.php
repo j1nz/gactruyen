@@ -1,14 +1,14 @@
 <?php
-    require_once( dirname(dirname(dirname(__FILE__))) . '/load.php' );
+    require_once( dirname(dirname(dirname(__FILE__))) . '/config.php' );
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<?php include_once(ABSPATH .'/include/template/site/header.php'); ?>
-    <link rel="stylesheet" href="/include/css/css-manga.css" />
+	<?php include_once(ABSPATH ._HEADER_FILE); ?>
+    <link rel="stylesheet" href="/include/css/ex-manga.css" />
 </head>
 <body>
-	<?php include_once(ABSPATH .'/include/template/site/menu-bar.php'); ?>
+	<?php include_once(ABSPATH ._MENU_BAR_FILE); ?>
     
     <div class="widget">
         <div class="title">
@@ -20,6 +20,8 @@
             <span><?php echo $this->obj_story->getStory_name();?></span>
 
         </div>
+        <input type="hidden" name="storyId" id="storyId" value="<?php echo $this->obj_story->getStory_id() ?>" />
+        <input type="hidden" name="chapterId" id="chapterId" value="<?php echo $this->obj_chapter->getChapter_id() ?>" />
         <div class="content">
             <div class="container-field">
 	    		<div class="img-cover">
@@ -51,7 +53,7 @@
 	    		</div>
 
 	    		<div class="content-story" style="border-top: 1px dotted darkslategray;padding-top: 10px;" id='content_story'>
-                	<?php echo $this->obj_chapter->getContent(); ?>
+      	             <?php echo $this->obj_chapter->getContent(); ?>
                 </div>
 
 	    		<div class="info-story">
@@ -71,8 +73,7 @@
 	    	</div>
         </div>
     </div>
-    
-   
-    <?php include_once(ABSPATH .'/include/template/site/footer-chapter.php'); ?>
+
+    <?php include_once(ABSPATH ._FOOTER_CHAPTER_FILE); ?>
 </body>
 </html>

@@ -10,7 +10,7 @@
 <html>
 <head>
 	<?php include_once(ABSPATH ._HEADER_FILE); ?>
-    <link rel="stylesheet" href="/include/css/css-manga.css" />
+    <link rel="stylesheet" href="/include/css/ex-manga.css" />
 </head>
 <body>
 	<?php include_once(ABSPATH ._MENU_BAR_FILE); ?>

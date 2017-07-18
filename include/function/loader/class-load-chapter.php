@@ -102,6 +102,22 @@
             return $__chapter;
         }
         
+        
+        function get_content_chapter_by_id($story_id, $index_chap) {
+            $db_pdo = PdoConnection::getInstance();
+            $db_pdo->get_conect_pdo();
+            
+            $__sql = 'select content from chapter where story_id = :storyId AND index_chap = :index_chap';
+            $__paremeter = array(
+                'storyId' => $story_id,
+                'index_chap' => $index_chap
+            );
+            
+            $__chapter = $db_pdo->q_item_with_param($__sql, $__paremeter);
+            
+            return $__chapter;
+        }
+        
         /**
          * LoadChapter::get_total_chapter_of_story()
          * 
@@ -140,7 +156,7 @@
             $db_pdo = PdoConnection::getInstance();
             $db_pdo->get_conect_pdo();
             
-            $__sql = 'select chapter_id, chapter_number, chapter_name, slug from chapter where story_id = :id';
+            $__sql = 'select chapter_id, chapter_number, chapter_name, slug from chapter where story_id = :id order by index_chap';
             $__paremeter = array(
                 'id' => $story_id
             );

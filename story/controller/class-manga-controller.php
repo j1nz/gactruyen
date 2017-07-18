@@ -105,7 +105,7 @@
             $obj_chapter = ChapterController::getInstance();
             $this->obj_chapter = new Chapter();
             
-            $this->obj_chapter->setChapter_id($obj_chapter->get_chapter_id_by_chapter_slug($this->obj_story->getStory_id(), ''));
+            $this->obj_chapter->setChapter_id($obj_chapter->get_chapter_id_by_chapter_slug($this->obj_story->getStory_id(), 'only'));
             
             $__result_chapter = $this->obj_load_chapter->get_chapter_by_id($this->obj_story->getStory_id(), $this->obj_chapter->getChapter_id());
             $this->obj_chapter->setChapter_id($__result_chapter['chapter_id']);
@@ -141,25 +141,6 @@
             //ob_end_flush();
             
             $this->obj_category = new Category();
-           /**
-             * @todo check story have chapter
-             * 
-             * @todo 
-             * - if story don't have any chapter display page introduction
-             *      + display button read if click it -> load content, and PAGINATION it
-             * 
-             * - if have chapter display page with all chapter
-             *      + display link to each chapter if click it -> load content, and PAGINATION it
-             *      + display button read -> if click button foward chapter 1, load content
-             * 
-             * @todo load content
-             * @todo load content with chapter
-             * 
-             * @todo pagnition content, with each page have 20,000 word
-             * 
-             * @since 2017-05-30
-             * @version 1.0
-             */
             
             $result_story = $this->loader->get_story_by_id($this->obj_story->getStory_id());
             $this->obj_story->setStory_name($result_story['story_name']);

@@ -32,6 +32,10 @@ $(document).ready(function($) {
 	//$(document).bind("contextmenu",function(){
 //        return false;
 //    });
+
+    $('#save_to_local').click(function() {
+        
+    });
 });
 
 function show_more_desc () {

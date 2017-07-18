@@ -17,17 +17,15 @@
 	<body>
     	<?php include_once(ABSPATH ._MENU_BAR_FILE); ?>
 
-  		<div class="container">
-  			<div class="widget_quote">
-				<div class="title">
+  		<div class="widget_quote">
+			<div class="title">
+            
+            </div>
+			<div class="content" style="word-wrap: break-word;">
+                <span style="color: red; font-weight:  bold;">Tr&iacute;ch dẫn hay: </span>
+                    <i><?php include_once ($dirAF) ?></i>
                 
-                </div>
-				<div class="content" style="word-wrap: break-word;">
-                    <span style="color: red; font-weight:  bold;">Tr&iacute;ch dẫn hay: </span>
-                        <i><?php include_once ($dirAF) ?></i>
-                    
-                </div>
-  			</div>
+            </div>
 		</div>
 
 		<div class="widget">

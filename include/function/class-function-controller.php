@@ -3,6 +3,7 @@
     require_once(ABSPATH .'/include/function/class-story-controller.php');
     require_once(ABSPATH .'/include/function/loader/class_load_function.php');
     require_once(ABSPATH .'/story/controller/class-chapter-controller.php');
+    require_once(ABSPATH .'/story/ajax/class-load-ajax.php');
     require_once(ABSPATH .'/story/model/class-uri-story.php');
 
     /**
@@ -149,6 +150,21 @@
                             $this->category = parent::get_param_url($permalinks[2]);
                         } else {
                             $this->category = null;
+                        }
+                        
+                        if ($this->category == 'ajax') {
+                            if (isset($permalinks[3])) {
+                                $ajax_page = parent::get_param_url($permalinks[3]);
+                            
+                                if ($ajax_page == '' || $ajax_page == null)
+                                    exit;
+                                
+                                LoadAjax::getInstance()->redirect();
+                            } else {
+                                echo 'some thing were wrong!!!';
+                            }
+                            
+                            exit;
                         }
                         
                         // initial object uri request

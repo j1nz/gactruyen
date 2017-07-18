@@ -60,10 +60,8 @@
                 self::view_chapter();
                 exit;
             } else {
-                parent::load_404();
-                
+                parent::load_404();   
             }
-            
         }
         
         public function check_chapter_slug($story_id, $chapter_slug) {
@@ -75,17 +73,6 @@
             
             return false;
         }
-        
-//        public function check_story_slug() {
-//            $__result = $this->obj_load_story->check_story_by_slug($this->story, $this->category);
-//            
-//            if ($__result == true) {
-//                return true;
-//            }
-//            
-//            return false;
-//            
-//        }
         
         public function get_story_id_by_story_slug ($story_slug) {
             $__result = $this->obj_load_story->get_story_by_story_slug($story_slug);
@@ -106,15 +93,29 @@
         public function view_chapter() {
             $this->obj_category = new Category();
             
+            // Lấy số chương có trong một truyện
             $this->total_chapter = $this->obj_load_chapter->get_total_chapter_of_story($this->obj_story->getStory_id());
             
+            /**
+             * Lấy toàn bộ nội dung chi tiết: chương, đường link mỗi chương, nội dung trong chương của truyện 
+             * bằng id của truyện đó.
+             * 
+             * @since
+             * @version
+             */
+            $regex_content = '/(?:\r\n|\r|\n)/';
+             
             $__result_chapter = $this->obj_load_chapter->get_chapter_by_id($this->obj_story->getStory_id(), $this->obj_chapter->getChapter_id());
             $this->obj_chapter->setChapter_id($__result_chapter['chapter_id']);
-            $this->obj_chapter->setChapter_name($__result_chapter['chapter_name']);
-            $this->obj_chapter->setChapter_number($__result_chapter['chapter_number']);
+//            $this->obj_chapter->setChapter_name($__result_chapter['chapter_name']);
+//            $this->obj_chapter->setChapter_number($__result_chapter['chapter_number']);
             $this->obj_chapter->setStory_id($__result_chapter['story_id']);
             $this->obj_chapter->setSlug($__result_chapter['slug']);
-            $this->obj_chapter->setContent($__result_chapter['content']);
+            
+            if ($this->obj_story->getStory_id() != 2) 
+                $this->obj_chapter->setContent(preg_replace($regex_content, '<br/>', $__result_chapter['content']));
+            else
+                $this->obj_chapter->setContent($__result_chapter['content']);
             
             $explode_chap = explode("-", $this->obj_chapter->getSlug());
             
@@ -132,6 +133,7 @@
             $page_current = $explode_chap[1];
             $page_previous = $explode_chap[0] .'-' .$previous;
             
+            // Lấy thông tin cơ bản của một truyện thông qua id của truyện
             $result_story = $this->obj_load_story->get_story_by_id($this->obj_story->getStory_id());
             $this->obj_story->setStory_name($result_story['story_name']);
             $this->obj_story->setCategory_id($result_story['category_id']);
@@ -142,13 +144,13 @@
             $this->obj_story->setStatus($result_story['status']);
             $this->obj_story->setLike($result_story['like']);
             
+            // Lấy thông tin của thể loại theo dường link
             $result_category = $this->obj_load_category->get_category_by_slug($this->category);
             $this->obj_category->setCategory_id($result_category['category_id']);
             $this->obj_category->setCategory_name($result_category['category_name']);
             $this->obj_category->setSlug($result_category['slug']);
             
             include_once (ABSPATH ._STORY_DIR ._VIEW_DIR .'/view-chapter.php');
-            
         }
 	}
 ?>

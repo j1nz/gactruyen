@@ -46,7 +46,7 @@
          * @version 1.1
          */
         public function load_404() {
-            ob_end_clean();
+            //ob_end_clean();
             include_once(ABSPATH .'/404.php');
             
             // redirect to 404 page

@@ -168,6 +168,7 @@
 }
 
 .chapter-pager {
+    display:none;
   margin-top: 15px;
   margin-bottom: 25px;
   padding-bottom: 0px;
@@ -213,4 +214,59 @@
 .btn-center {
   float: right;
   margin-top: 5px;
+}
+
+.sc_focus {
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    color: red;
+}
+
+.sc_text {
+    
+}
+
+.sc_break {
+    text-align: center;
+}
+
+.not-display-again {
+    margin-top: 10px;
+    width: 100%;
+    display: block;
+    text-align: left;
+}
+
+.swipeleft {
+
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 2s forwards;
+    animation-delay: 2s;
+    /* transform: scaleX(1); */
+}
+
+.swiperight {
+
+  
+    -webkit-animation: slide 0.5s forwards;
+    -webkit-animation-delay: 2s;
+    animation: slide 2s forwards;
+    animation-delay: 2s;
+}
+@-webkit-keyframes swipeleft {
+    100% { left: 0; }
+}
+
+@keyframes swipeleft {
+    100% { left: 0; }
+}
+
+@-webkit-keyframes swiperight {
+    100% { right: 0; }
+}
+
+@keyframes swiperight {
+    100% { right: 0; }
 }

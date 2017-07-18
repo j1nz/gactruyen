@@ -69,20 +69,18 @@
 
 		<div id="button_setting">
 			<!-- <i class="fa fa-cogs fa-3x" aria-hidden="true"></i> -->
-			<i class="fa fa-cog fa-3x" aria-hidden="true" data-toggle="modal" data-target=".bs-example-modal-sm"></i>
-			
+            <i class="fa fa-cog fa-3x" aria-hidden="true"></i>
+			<i class="fa fa-pencil-square-o fa-3x edit-style" aria-hidden="true" data-toggle="modal" data-target=".readmode-setting-modal-sm"></i>
 		</div>
 
          <!--back to top-->
         <div id="go_to_top">
         	<i class="fa fa-chevron-circle-up fa-3x" aria-hidden="true"></i>
-            
         </div>
         <!-- end back to top -->
 
-        <!-- Small modal -->
-
-		<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+        <!-- Setting style modal -->
+		<div class="modal fade readmode-setting-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
 		  <div class="modal-dialog modal-sm" role="document">
 		    <div class="modal-content">
 		    	<div class="modal-header">
@@ -157,160 +155,62 @@
 		  </div>
 		</div>
         <!-- setting modal -->
-		<!-- <div class="setting-modal" style="display: none;">
-			<span>Setting read mode</span>
+        
+        <!-- Hint modal -->
+        <div class="modal fade bs-modal-sm" id="hint_setting" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+		  <div class="modal-dialog modal-sm" role="document">
+		    <div class="modal-content">
+		    	<div class="modal-header" style="height: 35px">
+			        <button type="button" id="close_hint_modal" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			    </div>
+			    <div class="modal-body">
+			    	<span>Cuộn truyện lên để hiển thị tùy chọn setting, giúp bạn điều chỉnh font chữ nhiều thứ khác khi đọc truyện :))</span>
 
-			<div id="close-modal"><span>close</span></div>
+			    	<div class="checkbox not-display-again">
+						<label><input type="checkbox" id="not_display_hint_readmode" value="">Không hiển thị nữa</label>
+					</div>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+        <!-- end Hint modal -->
+        
+        <!-- chapter modal -->
+        <div class="modal fade bs-modal-sm" id="chapter_modal" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
+		  <div class="modal-dialog modal-sm" role="document">
+		    <div class="modal-content">
+		    	<div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="gridSystemModalLabel">Chapter</h4>
+			    </div>
+			    <div class="modal-body">
+			    	<div class="chapter_view_ajax" id="chapter_list">
+                    </div>
+			    </div>
+		    </div>
+		  </div>
+		</div>
+        <!-- end chapter modal -->
 
-
-			<div class="setting-read">
-				
-			</div>
-
-			
-		</div> -->
-        <script src="/include/js/jquery-3.2.1.js"></script>
-        <script src="/include/js/myjs-time-took.js"></script>
-        <script src="/wfe/js/myjs-save-local-storage.js"></script>
+        <script src="/include/js/jquery-2.2.2.js"></script>
+        <script src="/include/js/change-style.js"></script>
+        <script src="/include/js/time-took.js"></script>
+        <script src="/include/js/cookie.js"></script>
+        <script src="/include/js/hint-modal.js"></script>
+        <script src="/include/js/content-story-ajax.js"></script>
 
         <script type="text/javascript">
 			var link = window.location.href;
         	var title = window.document.title;
-
-        	$('#reset_style').click(function() {
-
-        	});
-
-        	$('#save_to_local').click(function() {
-        		var font_family = $('#changeFont').val();
-        		var font_size = $('#changeSize').val();
-        		var fg_color = $('#jscolor-fore-color').val();
-        		var bg_color = $('#jscolor-back-color').val();
-
-        		console.log(font_family);
-        		console.log(font_size);
-        		console.log(bg_color);
-        		console.log(fg_color);
-
-        		var obj_save_storage = new SettingReadMode(font_family, font_size, fg_color, bg_color);
-        		obj_save_storage.saveToLocalStorage();
-        	});
-
-			function fn_change_font(){
-				var new_font = $('#changeFont').val();
-
-				FontFamily.changeFont(new_font, '.note');
-
-				FontFamily.changeFont(new_font, '#content_story');
-			}
-
-        	function getScrollBody() {
-				var sc = $('body').scrollTop();
-
-				console.log('Scroll is: ' +sc);
-        	}
-			
-
-        	function change_bg_color(jscolor) {
-        		document.getElementById('content_story').style.backgroundColor = '#' +jscolor;
-        		$('.note').css('backgroundColor', '#' +jscolor);
-        	}
-
-        	function change_fg_color(jscolor) {
-        		document.getElementById('content_story').style.color = '#' +jscolor;
-        		$('.note').css('color', '#' +jscolor);
-        	}
-
-			function hide_setting() {
-				$('#button_setting').fadeOut("slow");
-			}
-
-			/* count time load page */
-			Took.getTimeLoadPage('took');
-			/* end count time load page */
-
-
-			$('#resetBackground').click(function () {
-
-			    change_color_background('fff');
-			    $('#jscolor-back-color').val('FFFFFF');
-			});
-
-			$('#resetForeground').click(function () {
-
-			    change_color_foreground('222');
-			    $('#jscolor-fore-color').val('222222');
-			});
-			
-
-            $(function() {
-            	if(typeof(Storage) !== 'undefined') {
-            		var variable = [];
-					variable[0] = localStorage.getItem('font_family');
-			    	variable[1] = localStorage.getItem('font_size');
-			    	variable[2] = localStorage.getItem('color_foreground');
-			    	variable[3] = localStorage.getItem('color_backgroud');
-
-            		if (variable != null) {
-            			FontFamily.changeFont(variable[0], 'content_story');
-            			$('#content_story').css({'fontSize' : variable[1]});
-            			change_bg_color(variable[3]);
-            			change_fg_color(variable[2]);
-
-            			$('#changeFont').val(variable[0]);
-		        		$('#changeSize').val(variable[1]);
-		        		$('#jscolor-fore-color').val(variable[2]);
-		        		$('#jscolor-back-color').val(variable[3]);
-            		}
-            	}
-
+            
+            
+            
+            $(document).ready(function() {
+                $(".chapter-pager").show();
                 $('.setting-modal').hide();
             	$('#widget_quote_fixed').hide();
               	$('#url').text(link);
               	$('#bbcode').text("[" +link + "] [" +title+ "]");
-				
-				var timeStamp = new Date().getTime();
-				var iScrollPos = 0;
-	            $(window).scroll(function () {
-					var timeNow = new Date().getTime();
-					var positionScroll = $(this).scrollTop();
-
-					//chặn scroll liên tục
-				    if (timeNow - timeStamp < 500) {
-				    	timeStamp = timeNow;
-				    	return;
-				    } else {
-				    	timeStamp = timeNow;
-					}
-
-	                if ($(this).scrollTop() > 50) {
-	                	if (positionScroll < iScrollPos) {
-						    // Hành động scroll lên
-						    $('#button_setting').fadeIn();
-						    console.log('scroll up');
-						    console.log('scroll: ' +positionScroll);
-						    console.log('point: ' +iScrollPos);
-						} else {
-							console.log('scroll down');
-						    console.log('scroll: ' +positionScroll);
-						    console.log('point: ' +iScrollPos);
-						}
-						iScrollPos = positionScroll;
-
-	                	
-	                	/*$('#go_to_top').fadeIn();*/
-	                	// $('#widget_quote_fixed').fadeIn();
-
-	                	setTimeout('hide_setting()', 1500);
-	                }
-	                  
-	                else {
-	                	/*$('#widget_quote_fixed').fadeOut();*/
-	                  	/*$('#go_to_top').fadeOut();*/
-	                  	hide_setting();
-	                 
-	                }
-	            });
 
 				$('#button_setting').click(function () {
 	            	console.log('open setting read mode');
@@ -318,7 +218,6 @@
 	            		
 	            });
 	            
-
 	            $('#close-modal').click(function () {
 	            	console.log('close setting read mode');
 	            	$('.setting-modal').hide();
@@ -331,11 +230,26 @@
 	            	}, 'slow');
 	            });
             });
+
+			function hide_setting() {
+				$('#button_setting').fadeOut("slow");
+			}
+
+			/* count time load page */
+			Took.getTimeLoadPage('took');
+			/* end count time load page */
          </script>
          
+        <script src="/include/js/storage.js"></script>
         <script src="/include/js/jscolor.js"></script>
-        <script src="/include/js/change_font_size.js"></script>
-        <script src="/include/js/view_manga.js"></script>
-        <script src="/include/js/myjs-change-font-family.js"></script>
+        <script src="/include/js/change-font-size.js"></script>
+        <script src="/include/js/view-chapter.js"></script>
+        <script src="/include/js/change-font-family.js"></script>
         <script src="/include/js/bootstrap.js"></script>
+        <script src="/include/js/list-chapter-ajax.js"></script>
+        <script src="/include/js/scroll-page.js"></script>
+        <script src="/include/js/touch-page.js"></script>
+        <script src="/include/js/analyst.js"></script>
+        <script src="/include/js/jquery.mobile.custom.min.js"></script>
+
     </footer>
